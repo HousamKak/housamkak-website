@@ -1015,7 +1015,7 @@
   }
 
   .card {
-    width: 95% !important;
+    width: 88% !important;
     height: 85% !important;
     max-height: calc(100vh - 140px);
     margin: 10px;
@@ -1070,7 +1070,7 @@
   }
 
   .card {
-    width: 98% !important;
+    width: 90% !important;
     height: 90% !important;
     max-height: calc(100vh - 120px);
     padding: 15px !important;
@@ -1198,7 +1198,7 @@
   }
 
   .card {
-    width: 100%;
+    width: 92%;
     height: 95%;
     max-height: calc(100vh - 100px);
     padding: 12px;
