@@ -499,6 +499,98 @@ document.addEventListener("DOMContentLoaded", function() {
       contactForm.reset();
     });
   
+    // Mobile Menu Functionality
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    let isMobileMenuOpen = false;
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      isMobileMenuOpen = !isMobileMenuOpen;
+
+      if (isMobileMenuOpen) {
+        mobileMenu.classList.add('active');
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent body scroll
+      } else {
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+      if (isMobileMenuOpen) {
+        isMobileMenuOpen = false;
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Mobile menu toggle button click
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    // Close mobile menu when overlay is clicked
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // Handle mobile menu item clicks
+    document.querySelectorAll('.mobile-menu-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const index = parseInt(item.getAttribute('data-index'));
+
+        // Update active mobile menu item
+        document.querySelectorAll('.mobile-menu-item').forEach(menuItem => {
+          menuItem.classList.remove('active');
+        });
+        item.classList.add('active');
+
+        // Navigate to the selected card
+        activeCardIndex = index;
+        updateActiveCard();
+
+        // Close mobile menu after selection
+        closeMobileMenu();
+      });
+    });
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close mobile menu when screen size changes to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && isMobileMenuOpen) {
+        closeMobileMenu();
+      }
+    });
+
+    // Update mobile menu active state when cards change
+    function updateMobileMenuActiveState() {
+      document.querySelectorAll('.mobile-menu-item').forEach((item, idx) => {
+        if (idx === activeCardIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Override the existing updateActiveCard function to include mobile menu updates
+    const originalUpdateActiveCard = updateActiveCard;
+    updateActiveCard = function() {
+      originalUpdateActiveCard();
+      updateMobileMenuActiveState();
+    };
+
     // Trigger initial update to set first card active
     updateActiveCard();
   }

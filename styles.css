@@ -975,3 +975,308 @@
       background-color: rgba(0, 255, 255, 0.3);
     }
   }
+
+/* Additional Mobile Improvements */
+
+/* Mobile Menu Toggle (Hidden by default on desktop) */
+.mobile-menu-toggle {
+  display: none;
+  color: white;
+  padding: 5px;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 130;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-arrows {
+    display: none; /* Hide arrows on mobile - use swipe instead */
+  }
+
+  .card {
+    width: 95% !important;
+    height: 85% !important;
+    max-height: calc(100vh - 140px);
+    margin: 10px;
+  }
+
+  .profile-photo {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  .exp-meta,
+  .edu-meta,
+  .project-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .skill-tag {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .nav-arrows {
+    display: none; /* Ensure arrows are hidden on small screens */
+  }
+
+  .card {
+    width: 98% !important;
+    height: 90% !important;
+    max-height: calc(100vh - 120px);
+    padding: 15px !important;
+  }
+
+  .card-title {
+    font-size: 20px !important;
+  }
+
+  .profile-photo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .mobile-menu {
+    width: 85% !important;
+    padding: 70px 15px 15px !important;
+  }
+
+  .skill-tag {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* Landscape Mobile Styles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .card {
+    height: 95% !important;
+    max-height: calc(100vh - 80px);
+  }
+
+  .profile-photo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .action-buttons {
+    flex-direction: row;
+  }
+
+  .action-btn {
+    width: auto;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .nav-dot {
+    width: 14px !important;
+    height: 14px !important;
+    margin: 3px;
+  }
+
+  .arrow {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .social-icon:active {
+    transform: scale(0.95);
+  }
+
+  .mobile-menu-item:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    width: 85%;
+    height: 80%;
+    max-height: calc(100vh - 160px);
+    padding: 25px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .job-title {
+    font-size: 18px;
+  }
+
+  .social-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .exp-item,
+  .edu-item,
+  .project-item,
+  .achievement-item {
+    padding: 18px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .header {
+    top: 25px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .navigation {
+    bottom: 25px;
+  }
+}
+
+/* Very small devices (landscape phones) */
+@media (max-width: 320px) {
+  .nav-arrows {
+    display: none; /* Ensure arrows are hidden on very small screens */
+  }
+
+  .card {
+    width: 100%;
+    height: 95%;
+    max-height: calc(100vh - 100px);
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .job-title {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .header {
+    top: 10px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .navigation {
+    bottom: 10px;
+    padding: 4px 8px;
+    gap: 8px;
+  }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .mobile-menu-item {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .skill-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* High DPI display adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .profile-photo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .nav-dot,
+  .arrow,
+  .social-icon {
+    will-change: transform;
+  }
+}
