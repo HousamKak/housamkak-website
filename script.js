@@ -456,39 +456,70 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   
-    // Handle touch swipe for mobile
+    // Handle touch swipe for mobile - improved version
     let touchStartX = 0;
+    let touchStartY = 0;
     let isSwiping = false;
-  
+    let touchStartTime = 0;
+    let hasSwipedThisGesture = false;
+
     document.addEventListener('touchstart', (e) => {
-      // Check if we're touching inside a card content
+      // Check if we're touching inside a card content area
       const isScrollingInsideCard = e.target.closest('.card-content');
-  
-      // If not inside card content, handle as swipe
+
+      // If not inside card content, prepare for potential swipe
       if (!isScrollingInsideCard) {
         touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
         isSwiping = true;
+        hasSwipedThisGesture = false;
+
+        // Prevent default to avoid page scrolling during swipe
+        e.preventDefault();
       } else {
         isSwiping = false;
       }
-    });
-  
+    }, { passive: false });
+
     document.addEventListener('touchmove', (e) => {
-      if (isSwiping) {
+      if (isSwiping && !hasSwipedThisGesture) {
         const touchX = e.touches[0].clientX;
-        const diff = touchStartX - touchX;
-  
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            changeCard(1);
-          } else {
-            changeCard(-1);
+        const touchY = e.touches[0].clientY;
+        const diffX = touchStartX - touchX;
+        const diffY = touchStartY - touchY;
+
+        // Check if this is more of a horizontal swipe than vertical
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          // Prevent default scrolling for horizontal swipes
+          e.preventDefault();
+
+          // Only trigger swipe if we've moved far enough and it's been quick enough
+          if (Math.abs(diffX) > 80) {
+            const timeDiff = Date.now() - touchStartTime;
+
+            // Only allow swipes that are reasonably fast (within 500ms)
+            if (timeDiff < 500) {
+              if (diffX > 0) {
+                changeCard(1); // Swipe left to go to next card
+              } else {
+                changeCard(-1); // Swipe right to go to previous card
+              }
+
+              hasSwipedThisGesture = true;
+              isSwiping = false;
+            }
           }
-  
-          // Reset to prevent multiple swipes
+        } else if (Math.abs(diffY) > 20) {
+          // If user is scrolling vertically, cancel horizontal swipe detection
           isSwiping = false;
         }
       }
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      isSwiping = false;
+      hasSwipedThisGesture = false;
     });
   
     // Handle form submission

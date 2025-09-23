@@ -1014,6 +1014,23 @@
     display: none; /* Hide arrows on mobile - use swipe instead */
   }
 
+  /* Prevent touch manipulation of 3D scene and cards */
+  .three-js-container,
+  .cards-container,
+  .card {
+    touch-action: pan-y; /* Allow only vertical scrolling */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .card-content {
+    touch-action: pan-y; /* Allow scrolling inside cards */
+  }
+
   .card {
     width: 88% !important;
     height: 85% !important;
