@@ -1,0 +1,5 @@
+[
+  {"src": "/media/super-camera/shots/01-screen-and-inset-settings.webp", "alt": "Super Camera settings panel on the Screen tab: choose what to record, pointer shown, camera inset on, inset shape circle, corner bottom right, size medium", "caption": "Screen settings: pick a display or window and place the camera inset by shape, corner and size.", "kind": "desktop"},
+  {"src": "/media/super-camera/shots/02-monitoring-tools.webp", "alt": "Super Camera Tools tab with replay buffer, auto-frame on my face, framing guides, histogram and zebras", "caption": "Monitoring and framing tools: replay buffer, auto-framing, guides, histogram and zebras.", "kind": "desktop"},
+  {"src": "/media/super-camera/shots/03-recorder-idle.webp", "alt": "Super Camera main window waiting for a camera, with source, library and settings buttons and photo and start recording controls", "caption": "The recorder at rest, with no camera attached.", "kind": "desktop"}
+]

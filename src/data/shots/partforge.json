@@ -1,0 +1,5 @@
+[
+  {"src": "/media/partforge/shots/01-six-view-render.webp", "alt": "Six OpenSCAD renders of a pillow block bearing mount from iso, front, top, left, right and bottom, produced by pf build --views", "caption": "pf build --views: the pillow block rendered from six angles in one pass.", "kind": "desktop"},
+  {"src": "/media/partforge/shots/02-build-check-report.webp", "alt": "Terminal output of pf build for the pillow block: render time, measured size and volume, closed shell, printer and material settings, a PRINTABLE-WITH-CARE verdict with an overhang warning, and the sliced print time and grams", "caption": "The check report: measurement, design-for-additive findings and the slicer's real time and grams.", "kind": "desktop"},
+  {"src": "/media/partforge/shots/03-sliced-plate.webp", "alt": "Plate preview of the sliced pillow block from the headless Bambu Studio slice", "caption": "The sliced plate, produced headlessly from the same command.", "kind": "desktop"}
+]

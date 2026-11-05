@@ -1,0 +1,26 @@
+[
+  {
+    "src": "/media/h-system/shots/01-canvas-wired.webp",
+    "alt": "H canvas with two agent terminals wired by their Agent link outputs to a project board, a test metrics tile and a release checklist, plus a dev server terminal",
+    "caption": "The canvas: agent terminals wired to the applets they drive, and applets wired to each other. Demo workspace on a separate local instance; the terminal text is scripted demo output.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/h-system/shots/02-agent-updated-board.webp",
+    "alt": "The same canvas after a state patch moved a card on the project board into Review",
+    "caption": "A state patch through H's applet API lands on the board live; the tile re-renders in place.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/h-system/shots/03-applet-code-mode.webp",
+    "alt": "The project board applet switched to code mode, showing its HTML and CSS source on the canvas",
+    "caption": "Every applet is editable source: code mode opens it in place, with versions you can restore.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/h-system/shots/04-integrats-marketplace.webp",
+    "alt": "The Integrats marketplace panel listing installable first-party apps next to the canvas",
+    "caption": "Integrats: installable apps that plug into the canvas and its agents.",
+    "kind": "desktop"
+  }
+]
