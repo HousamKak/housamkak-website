@@ -14,7 +14,7 @@ highlights:
   - "React Native client prepared with Play Store assets"
   - "MCP server giving agents access to the API"
 credits:
-  - "nkaticha, collaborator and the largest contributor to the web app (209 commits)"
+  - "nkaticha, collaborator and the largest contributor to the web app"
 links: {}
 openQuestions:
   - "Housam's role in Saken?"

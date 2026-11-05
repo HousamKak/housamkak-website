@@ -10,12 +10,12 @@ period: "Sep 2026"
 status: "Research complete enough for a paper; public repository"
 stack: ["Python", "NumPy", "MuJoCo", "LaTeX", "HTML/JS"]
 highlights:
-  - "Seven model layers, from momentum theory and mass closure to Newton-Euler dynamics, control and optimisation"
+  - "Layered models, from momentum theory and mass closure to Newton-Euler dynamics, control and optimisation"
   - "The feasibility wall: a saddle-node fold beyond which no equilibrium mass exists at all"
   - "Tests assert the engine's sensitivity exponents against the closed-form theory"
   - "Browser design tool and a CLI covering design, wall, simulation, closure, optimisation and tether studies"
   - "MuJoCo turnaround and walk-loop simulations"
-  - "A full paper with derivations, proofs, 71 diagrams and a design study generated from the engine"
+  - "A full paper with derivations, proofs, diagrams and a design study generated from the engine"
 credits: []
 links:
   repo: "https://github.com/HousamKak/flying-screen"
@@ -57,7 +57,7 @@ The core of the algebraic layer is mass closure. Splitting mass into fixed, stru
 
 It also explains why endurance is brutal. The wall scales with the inverse square of flight time, so four times the flight time costs sixteen times the payload. The engine computes these exponents numerically and the tests assert they come out at exactly the theoretical values. The paper then shows the fold exists only while rotor disk area grows slower than mass; at constant disk loading the wall moves from mass to rotor diameter.
 
-The study turned up four findings that invert the naive expectation. Indoors, beside a person, the binding constraint is acoustic, not energetic. A declared sound-power level is not a pressure at one metre, and confusing the two (with an uncalibrated anchor) was worth fourteen decibels of error. The safe standoff is measured to the display, but the rotors reach most of a metre back toward the user. And the standoff that makes the blades safe makes ordinary text too small: at 1.2 m a laptop panel needs heavy interface scaling, leaving roughly a tablet's worth of usable workspace.
+The study turned up findings that invert the naive expectation. Indoors, beside a person, the binding constraint is acoustic, not energetic. A declared sound-power level is not a pressure at one metre, and confusing the two (with an uncalibrated anchor) was worth fourteen decibels of error. The safe standoff is measured to the display, but the rotors reach most of a metre back toward the user. And the standoff that makes the blades safe makes ordinary text too small: at 1.2 m a laptop panel needs heavy interface scaling, leaving roughly a tablet's worth of usable workspace.
 
 ## Where it stands
 

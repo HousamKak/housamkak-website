@@ -14,7 +14,7 @@ export const io: Record<string, { in: string; out: string; see?: string }> = {
   'h-distribution': { in: 'one post', out: 'Scheduled across platforms, from a UI, CLI, API or agent.' },
   atlagene: { in: 'a genomics idea in Lebanon', out: 'A startup through accelerators, with its pitch and product story.' },
   chatability: { in: 'a region of a PDF page', out: 'Answers about exactly that region.' },
-  'manifold-strike': { in: 'a 260 KB recipe', out: 'Seven levels, generated at load time.' },
+  'manifold-strike': { in: 'a 260 KB recipe', out: 'Every level, generated at load time.' },
   'flying-screen': { in: '"can a screen hover beside me?"', out: 'A physics answer for every candidate aircraft.' },
   slideflip: { in: 'an English .pptx', out: 'A correctly mirrored Arabic deck.' },
   'enterprise-ai-pilot': { in: 'a question about company data', out: 'An answer from a conversational system over graph and search.' },

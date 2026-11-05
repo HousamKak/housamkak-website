@@ -34,7 +34,7 @@ Hosted scheduling tools solve part of this, but they keep the content, the token
 
 H Distribution is a Next.js application backed by SQLite. A post is written once and expanded into variants, one per platform, which can be edited independently. Variants can be published immediately or scheduled. A background worker publishes due work, pulls post and account analytics, runs automations and reads feeds. Comments come back into a single engagement inbox where they can be answered.
 
-The same operations are available four ways: the web UI, a command-line tool, an HTTP API (with an OpenAPI description) and an MCP server. An agent connected over MCP can draft a post, generate variants, schedule them and check how they did, using exactly the same rules as the UI.
+The same operations are available from the web UI, a command-line tool, an HTTP API (with an OpenAPI description) and an MCP server. An agent connected over MCP can draft a post, generate variants, schedule them and check how they did, using exactly the same rules as the UI.
 
 Connectors exist for Instagram, Facebook Pages, YouTube, Bluesky, Mastodon, Reddit, Telegram, Discord, Slack, X and dev.to. Not every platform allows full API publishing (Meta, for example, does not allow third-party publishing to personal Facebook profiles), so connectors can report assisted or manual states instead of pretending a post went out.
 

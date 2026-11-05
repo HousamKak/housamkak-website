@@ -90,7 +90,7 @@ const idx = (i: number) => `${String(i + 1).padStart(2, '0')} / ${String(N).padS
           <div class="exp">
             <h3>Independent systems</h3>
             <p class="meta">2026</p>
-            <ul><li>Five flagship systems and two dozen tools. They are the next cards.</li></ul>
+            <ul><li>Flagship systems and smaller tools, on the cards that follow.</li></ul>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ const idx = (i: number) => `${String(i + 1).padStart(2, '0')} / ${String(N).padS
         <section class="card flagship" id={w.id} aria-label={w.data.title}>
           <div class="card-in">
             {m.hero && <div class="shot"><img src={m.hero} alt={m.heroAlt ?? w.data.title} loading={k < 2 ? 'eager' : 'lazy'}></div>}
-            <div class="head over"><span class="idx">{idx(k + 2)}</span><span class="tag">Flagship {k + 1} of 5</span></div>
+            <div class="head over"><span class="idx">{idx(k + 2)}</span><span class="tag">Flagship</span></div>
             <div class="body">
               <h2 class="title">{w.data.title}</h2>
               <p class="hook">{w.data.hook}</p>
@@ -118,13 +118,13 @@ const idx = (i: number) => `${String(i + 1).padStart(2, '0')} / ${String(N).padS
 
     <section class="card" id="more" aria-label="More work">
       <div class="card-in">
-        <div class="head"><span class="idx">{idx(flag.length + 2)}</span><span class="tag">{cases.length} case studies</span></div>
+        <div class="head"><span class="idx">{idx(flag.length + 2)}</span><span class="tag">Case studies</span></div>
         <div class="body">
           <h2 class="title">More work</h2>
           <ul class="list">
             {cases.map((w) => <li><a href={`/work/${w.id}`}><b>{w.data.title}</b><span>{w.data.hook}</span></a></li>)}
           </ul>
-          <div class="btns"><a class="btn ghost" href="/work">All {work.length} projects</a></div>
+          <div class="btns"><a class="btn ghost" href="/work">All projects</a></div>
         </div>
       </div>
     </section>

@@ -35,17 +35,17 @@ draft: false
 
 ## The problem
 
-By spring 2026 I was running several Claude Code sessions at once across a dozen projects. The work was fine. The coordination was not. Terminals piled up, I lost track of which agent was finished and which was waiting on me, context lived in scrollback, and every small tool I wanted (a to-do list, a port watcher, a cost meter) was either another browser tab or nothing.
+By spring 2026 I was running several Claude Code sessions at once across many projects. The work was fine. The coordination was not. Terminals piled up, I lost track of which agent was finished and which was waiting on me, context lived in scrollback, and every small tool I wanted (a to-do list, a port watcher, a cost meter) was either another browser tab or nothing.
 
 Terminal multiplexers and agent dashboards help with layout, but they treat an agent as a box of text. I wanted the agents, the small tools they make, and the data between them on one surface, connected in a way I could see and they could use.
 
 ## What I built
 
-H is a pnpm TypeScript monorepo (37 packages, version 0.2.553 at the last commit) that I started on 1 April 2026. All 460 commits in the repo are mine.
+H is a pnpm TypeScript monorepo that I started on 1 April 2026. Every commit in it is mine.
 
 - **An orchestrator** (`packages/orchestrator`) that coordinates projects, agents, memory, task graphs, sessions, terminals, costs and MCP tools over an event bus, with an SQLite store where every change is an event.
 - **The canvas** in the React/Vite web app, also packaged as a Tauri desktop app. Tiles are terminals running Claude Code or Codex, chats with docked agents, generated applets, processes, datastores and transforms.
-- **An MCP server** (`packages/mcp`) that gives agents about a hundred tools, including canvas tools such as `h_canvas_create_wire`, `h_my_links`, `h_applet_state_patch` and `h_applet_html_write`.
+- **An MCP server** (`packages/mcp`) that gives agents tools across the whole system, including canvas tools such as `h_canvas_create_wire`, `h_my_links`, `h_applet_state_patch` and `h_applet_html_write`.
 - **Services around it**: a per-project knowledge engine, a secrets vault, a supervisor that restarts the backend, a health monitor, cost tracking, and an exchange that routes anything needing a person to wherever I am (Telegram, the handset, the desktop).
 - **The Colony**, a second interface next to the canvas that shows everything alive in H as a real-time strategy map. Projects are bases, sessions are yards, agents are units, CPU and RAM are the power grid. Every order goes through the same APIs the canvas uses.
 - **Woodr**, a relational drawing language behind the Woopy applet, with its own core, CLI and PNG, SVG and web renderers.

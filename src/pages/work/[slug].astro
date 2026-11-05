@@ -29,7 +29,7 @@ const heroFig = m.hero ? fig() : '';
 <Base title={d.title} description={d.summary} og={m.og ?? m.hero} nav="work" type="article" sheet={d.title} dwg={no}>
   <header class="cs-head">
     <div>
-      <p class="label">Sheet {no} of {work.length}</p>
+      <p class="label">Sheet {no}</p>
       <p class="label" style="margin-top:6px"><a href="/work" style="text-decoration:none">Parts list</a> · {tierLabel(d.tier)}</p>
     </div>
     <div>
@@ -90,7 +90,7 @@ const heroFig = m.hero ? fig() : '';
         {d.links.writing && <><dt>Writing</dt><dd><a href={d.links.writing}>Read the story</a></dd></>}
         {!d.links.live && !d.links.repo && !d.confidential && <><dt>Access</dt><dd>Private codebase. Walkthrough on request.</dd></>}
       </dl>
-      <div class="tb-foot"><div><b>TIER</b>{tierLabel(d.tier)}</div><div><b>FIGS</b>{figs.length + (m.hero ? 1 : 0) + (looks ? 1 : 0) + m.turntables.length}</div><div><b>SHEET</b>{no} of {work.length}</div></div>
+      <div class="tb-foot"><div><b>TIER</b>{tierLabel(d.tier)}</div><div><b>SOURCE</b>{fromApp ? 'Running app' : 'Stills'}</div><div><b>SHEET</b>{no}</div></div>
     </aside>
   </div>
 
@@ -112,7 +112,7 @@ const heroFig = m.hero ? fig() : '';
 
   {m.turntables.length > 0 && (
     <section class="sheet-section" aria-labelledby="models">
-      <div class="sechead"><span class="label">Exports</span><h2 id="models">Models compiled by the engine</h2><span class="label">{m.turntables.length} turntables</span></div>
+      <div class="sechead"><span class="label">Exports</span><h2 id="models">Models compiled by the engine</h2></div>
       <div class="figs">
         {m.turntables.map((t) => (
           <figure class="fig">
@@ -126,7 +126,7 @@ const heroFig = m.hero ? fig() : '';
 
   {figs.length > 0 && (
     <section class="sheet-section" aria-labelledby="figs">
-      <div class="sechead"><span class="label">Figures</span><h2 id="figs">{m.shots.length ? 'From the running software' : 'Stills'}</h2><span class="label">{figs.length} {figs.length === 1 ? 'figure' : 'figures'}</span></div>
+      <div class="sechead"><span class="label">Figures</span><h2 id="figs">{m.shots.length ? 'From the running software' : 'Stills'}</h2></div>
       <div class="figs">
         {figs.map((p, i) => (
           <figure class={`fig ${p.kind === 'mobile' ? 'phone' : ''} ${i === 0 && figs.length % 2 === 1 && p.kind !== 'mobile' ? 'wide' : ''}`}>

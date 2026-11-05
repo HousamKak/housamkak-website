@@ -42,7 +42,7 @@ My remit as Co-Founder and CTO (Engineering) has been engineering and infrastruc
 
 The work that is directly mine in the repository is on the product story:
 
-- **Strategy and pitch.** I reframed the company's pitch around a B2B-first strategy, with a problem and product narrative, a business model, a lab value proposition one-pager, a 12-slide deck and a pitch script under three minutes.
+- **Strategy and pitch.** I reframed the company's pitch around a B2B-first strategy, with a problem and product narrative, a business model, a lab value proposition one-pager, a short deck and a pitch script under three minutes.
 - **The 3D booth.** I turned the event collateral into an interactive Three.js scene served on the website, so a visitor can walk up to the booth, look at the banner and board, and draw cards from the deck.
 - **Collateral.** Desk tent cards and an A4 desk card for events, pointing people at the virtual booth.
 

@@ -86,7 +86,7 @@ Case study: [housamkak.com/work/blockforge](https://www.housamkak.com/work/block
 
 *Node.js, Express, SQLite, Turso, Cloudflare R2, PostgreSQL*
 
-Keeps a Lebanese store selling without internet: transactional checkout, FIFO lot inventory, USD/LBP books, audit trails and outbox replication to the cloud, plus photo-based product discovery. Lead author, with contributions from Mahdi Kak.
+Keeps a Lebanese store selling without internet: transactional checkout, FIFO lot inventory, USD/LBP books, audit trails and outbox replication to the cloud, plus photo-based product discovery. Designed and built solo.
 
 Case study: [housamkak.com/work/pos-store-management](https://www.housamkak.com/work/pos-store-management)
 

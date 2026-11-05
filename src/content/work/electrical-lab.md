@@ -10,13 +10,13 @@ period: "Sep 2026"
 status: "Prototype, in active development"
 stack: ["TypeScript", "Node.js", "MCP", "avr8js", "ngspice", "KiCad CLI", "Playwright", "Arduino CLI", "C++", "Zig", "Vite", "Vitest"]
 highlights:
-  - "One circuit model (parts, nets, firmware) with five backends chosen by the question being asked"
+  - "One circuit model (parts, nets, firmware), run on whichever backend answers the question being asked"
   - "Arduino sketches compiled to Intel HEX with a project-local toolchain and emulated headlessly"
   - "ngspice operating point, transient, DC sweep and AC analyses with real device models"
   - "Lab Studio: schematic, breadboard, 3D and PCB views, with live sync and version history"
   - "A C++ sparse solver core built to WebAssembly and a Node addon, checked against ngspice in tests"
 credits:
-  - "Fritzing parts library (CC-BY-SA), about 2,100 parts"
+  - "Fritzing parts library (CC-BY-SA)"
   - "avr8js and rp2040js for microcontroller emulation"
   - "ngspice, KiCad and Wokwi as backends"
 links: {}
@@ -52,9 +52,9 @@ Around that model sits **Lab Studio**, a web editor for the same circuits. It ha
 
 Firmware is real. Arduino sketches compile to Intel HEX with a project-local Arduino CLI, and standard libraries such as LiquidCrystal and Servo run unmodified in the emulator. Breadboards are real connectivity: parts snap into holes, and rows and rails flatten into nets, so simulation works through the board rather than around it.
 
-The part catalogue has over 50 built-in kinds that simulate live (from passives and transistors to regulators, displays, sensors, Arduino boards and a Raspberry Pi Pico), each mapped to ngspice, KiCad or Wokwi where those tools have an equivalent, plus about 2,100 parts imported from the Fritzing library.
+The part catalogue has built-in parts that simulate live (from passives and transistors to regulators, displays, sensors, Arduino boards and a Raspberry Pi Pico), each mapped to ngspice, KiCad or Wokwi where those tools have an equivalent, plus parts imported from the Fritzing library.
 
-In the third engine revision the simulator moved onto a C++ sparse core, built with Zig to WebAssembly and to a Node addon. It adds full SPICE device models, adaptive timestep, event-driven mixed-mode digital logic, thermal models, AC and noise analysis, transmission lines and batch sweeps with Monte Carlo and worst-case corners. Every model is checked against ngspice in the test suite, which has around 200 tests plus end-to-end runs in a real browser.
+In the third engine revision the simulator moved onto a C++ sparse core, built with Zig to WebAssembly and to a Node addon. It adds full SPICE device models, adaptive timestep, event-driven mixed-mode digital logic, thermal models, AC and noise analysis, transmission lines and batch sweeps with Monte Carlo and worst-case corners. Every model is checked against ngspice in the test suite, alongside end-to-end runs in a real browser.
 
 ## Where it stands
 

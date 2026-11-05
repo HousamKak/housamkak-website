@@ -32,7 +32,7 @@ I wanted a single loop where a part's dimensions are named, a change is one comm
 
 ## What I built
 
-Partforge is one core with two front ends: `pf` in a terminal, and an MCP server (54 tools) for an agent. The repository ships an `.mcp.json`, so Claude Code registers the tools automatically when working in that folder. It covers four systems:
+Partforge is one core with two front ends: `pf` in a terminal, and an MCP server for an agent. The repository ships an `.mcp.json`, so Claude Code registers the tools automatically when working in that folder. It covers these systems:
 
 - **OpenSCAD** for parametric authoring, named dimensions and STL, 3MF or PNG export;
 - **Bambu Studio** for headless slicing to a real `.gcode.3mf` with true print time and grams;

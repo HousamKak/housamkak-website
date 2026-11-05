@@ -15,7 +15,7 @@ highlights:
   - "Formatting runs survive translation through inline markers the translator must return"
   - "Every run hashes text, counts shapes and validates schema before and after, and writes atomically"
   - "Translation provider kept in its own assembly so the engine never takes a network dependency"
-  - "67 tests that need no PowerPoint, plus an invariant-based verify harness over a fixture corpus"
+  - "Tests that need no PowerPoint, plus an invariant-based verify harness over a fixture corpus"
 credits: []
 links: {}
 openQuestions:
@@ -55,4 +55,4 @@ A separate PDF importer rebuilds a PDF deck as real PowerPoint shapes, so the en
 
 ## Where it stands
 
-SlideFlip is a working engine and CLI with 67 tests that run without PowerPoint and a verify harness over a fixture corpus. It is not packaged and has no public repository yet.
+SlideFlip is a working engine and CLI with tests that run without PowerPoint and a verify harness over a fixture corpus. It is not packaged and has no public repository yet.

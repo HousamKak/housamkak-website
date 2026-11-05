@@ -53,4 +53,4 @@ A lot of the later commits are about feel rather than features: the capture ripp
 
 ## Where it stands
 
-Chatability is in beta, built and maintained by me, with 91 commits from November 2025 to September 2026. The web app, the extension (version 0.15) and the mobile clients exist, and the clients point at the live cloud service. The source is private. I cannot yet state user numbers or store availability.
+Chatability is in beta, built and maintained by me from November 2025 to September 2026. The web app, the extension (version 0.15) and the mobile clients exist, and the clients point at the live cloud service. The source is private. I cannot yet state user numbers or store availability.

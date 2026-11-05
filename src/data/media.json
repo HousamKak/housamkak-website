@@ -54,7 +54,7 @@
         "src": "/media/blockforge/turntable-train.mp4",
         "poster": "/media/blockforge/turntable-train.webp",
         "alt": "A long voxel steam train with a black locomotive, tender and coloured passenger carriages beside a station platform, turning slowly on a dark background.",
-        "caption": "Grand Express train, about 88,000 blocks, exported to GLB and turned in three.js."
+        "caption": "Grand Express train, exported to GLB and turned in three.js."
       },
       {
         "src": "/media/blockforge/turntable-rocket.mp4",

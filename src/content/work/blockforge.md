@@ -14,7 +14,7 @@ highlights:
   - "Seekable rendering: every frame is a pure function of story time, so stills, chunked renders and re-renders of one beat give the same pixels"
   - "World history: content-addressed versions, block-level diffs, three-way merge, branches and pull requests for worlds"
   - "Object compiler derives mass, centre of mass, inertia and fitted colliders from compiled objects"
-  - "CLI bridge and an MCP server (about 260 tools in the generated reference) with snapshot and query so agents see what they build"
+  - "CLI bridge and an MCP server with snapshot and query so agents see what they build"
   - "Timeline documents that compile a whole film: world, screens, animation groups, camera clips and cues, in seconds"
 credits:
   - "Built on open-source libraries including Three.js, SDL2 and Luau, each under its own licence"
@@ -50,8 +50,8 @@ The main pieces:
 - **A native client** (`cpp/`, C++17 and SDL2, built with CMake) that reads the same saves and plans. It adds a camera system with bookmarks, keyframed shots and generated moves (orbit, turntable, dolly, crane, flyby) and can record to MP4.
 - **A shared ModHost** (`modhost/`) that runs Luau mods as a native library and as WASM, so a mod produces the same state in both clients.
 - **A bridge, CLI and MCP server** (`cli/kc.js`, `cli/mcp*.js`). Everything is reachable from the command line and over MCP, and a coverage test fails if a capability has no MCP path.
-- **45 JSON schemas** in `schemas/`, covering saves, timelines, shots, styles, world history objects and thirteen object domains (figure, vehicle, mechanism, plant, furniture, garment and more) on `blockforge-object/1`.
-- **The landing site** at blockforge.housamkak.com, a static page on Cloudflare where every picture is a BlockForge render, including a 90-frame scroll-scrubbed hero in 16:9 and 9:16.
+- **JSON schemas** in `schemas/`, covering saves, timelines, shots, styles, world history objects and object domains (figure, vehicle, mechanism, plant, furniture, garment and more) on `blockforge-object/1`.
+- **The landing site** at blockforge.housamkak.com, a static page on Cloudflare where every picture is a BlockForge render, including a scroll-scrubbed hero in 16:9 and 9:16.
 
 ## How it works
 
@@ -75,4 +75,4 @@ World history works like git for worlds. After `kc.js world init`, every change 
 
 ## Where it stands
 
-BlockForge is in active development, with daily commits. The engine is not released. The public site is a coming-soon page with a walkable exhibition and a film gallery (One World, Atom to Bomb, Claymation, Lamplighter, Pixel Tide, SDF Garden and others). The project notes report about 1,040 passing tests. Some ambitions are explicitly unfinished and labelled that way in the status file: racing, characters at arbitrary detail, and representations beyond voxels have specs and first slices, not finished systems.
+BlockForge is in active development, with daily commits. The engine is not released. The public site is a coming-soon page with a walkable exhibition and a film gallery (One World, Atom to Bomb, Claymation, Lamplighter, Pixel Tide, SDF Garden and others). Some ambitions are explicitly unfinished and labelled that way in the status file: racing, characters at arbitrary detail, and representations beyond voxels have specs and first slices, not finished systems.

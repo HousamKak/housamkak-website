@@ -11,7 +11,7 @@ status: "In use for my own apps, behind Cloudflare Access"
 stack: ["TypeScript", "Cloudflare Workers", "D1", "R2", "Queues", "Cloudflare Access", "Java/NDK", "Swift", "C", "Python", "MCP", "GitHub Actions"]
 highlights:
   - "Two Cloudflare Workers (ingest and dashboard) sharing validation, fingerprinting and version-compare modules"
-  - "SDKs on four platforms, including native crash capture on Android (NDK signal handler) and iOS (C crash writer)"
+  - "SDKs for the web, Android, iOS and Python, including native crash capture on Android (NDK signal handler) and iOS (C crash writer)"
   - "Source map and native symbol upload, with a symbolication job in CI"
   - "Alert rules for new issues, regressions, error spikes and crash-free drops, by email, Telegram or webhook"
   - "Funnels, retention cohorts and release adoption views"
@@ -32,7 +32,7 @@ I wanted one place, on infrastructure I already run, that every app could report
 
 ## What I built
 
-App Monitor is a personal monitoring platform built around one owner and many apps. It has four parts.
+App Monitor is a personal monitoring platform built around one owner and many apps. These are its pieces.
 
 **An ingest Worker** that receives events, errors and crashes from apps. It validates every payload, rate limits per install, applies a daily quota per app and an account-wide cap, and hands work to a queue so the request path stays fast.
 
@@ -54,4 +54,4 @@ Testing runs at several levels: unit tests for the pure modules, a curl suite ag
 
 ## Where it stands
 
-App Monitor is deployed on Cloudflare and in daily use for my own apps, with the dashboard behind Cloudflare Access. All seven phases of the original spec are implemented on the server side. The Android and iOS SDKs build and pass in CI on emulator and simulator; physical device coverage is still thin. The code is private, and the public screenshots will come from seeded demo data rather than real apps.
+App Monitor is deployed on Cloudflare and in daily use for my own apps, with the dashboard behind Cloudflare Access. Every phase of the original spec is implemented on the server side. The Android and iOS SDKs build and pass in CI on emulator and simulator; physical device coverage is still thin. The code is private, and the public screenshots will come from seeded demo data rather than real apps.

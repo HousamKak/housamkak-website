@@ -38,7 +38,7 @@ When I asked a coding agent to fix something on a page, most of the effort went 
 
 ## What I built
 
-UIpen is two pieces plus the product around them. I built it alone between April and August 2026 (72 commits, version 0.3.1).
+UIpen is two pieces plus the product around them. I built it alone between April and August 2026.
 
 - **The overlay** (`overlay.ts`, bundled to `public/overlay.js`). Included in dev mode with a single script tag, it draws a toolbar inside a shadow root so the host app's CSS cannot leak in. Its tools are Pin (click a point and comment), Region (drag a rectangle), Arrow (click A, click B, explain what should change between them), Select (snap to an element's bounds) and Cursor (pass through).
 - **The server** (`server.ts`, Bun on port 8787). It receives annotations over HTTP, talks to the overlay over WebSocket, and acts as an MCP server that Claude Code loads as a Channel.
@@ -58,7 +58,7 @@ The MCP tools go beyond resolve. `mark_annotation_failed` and `mark_annotation_r
 
 **Choosing not to support everything.** I tried bridging UIpen to agents that have no push channel, through terminal wrappers and editor extensions, and concluded the approach does not work: without server-to-agent push the loop degrades into polling and keystroke injection. UIpen is Claude Code native by design and rides on Channels. The cost is real. Channels is a research preview, so users launch Claude with `--dangerously-load-development-channels server:uipen`, and the notification schema may change.
 
-**Treating the browser as untrusted input.** An April audit, run as four parallel reviews of security, code quality, UX and features, found three critical issues. The server bound to `0.0.0.0` and was reachable on the LAN. Notification metadata could carry a non-string URL. And browser-controlled file paths flowed to Claude unvalidated, so a page could post a pin whose source file was `../../.ssh/id_rsa` with the comment "fix this", aimed at an agent told to edit the referenced file. All three were fixed in 0.2.16, the eight high-priority items followed, and a second review caught that the knobs endpoint skipped the same path sanitising and fixed it too.
+**Treating the browser as untrusted input.** An April audit, run as parallel reviews of security, code quality, UX and features, found critical issues. The server bound to `0.0.0.0` and was reachable on the LAN. Notification metadata could carry a non-string URL. And browser-controlled file paths flowed to Claude unvalidated, so a page could post a pin whose source file was `../../.ssh/id_rsa` with the comment "fix this", aimed at an agent told to edit the referenced file. All of them were fixed in 0.2.16, the high-priority items followed, and a second review caught that the knobs endpoint skipped the same path sanitising and fixed it too.
 
 **Licensing without pretending.** No client-side licence check is uncrackable, so the goal was that paying is cheaper than cracking. Licences are Ed25519-signed and bound to a machine, with a 7-day trial, revocation and an admin CLI. The activation server issues trials, creates licences on Polar.sh `order.paid` webhooks and revokes them on `order.refunded`. The server ships as a compiled Bun binary. The activation server is containerised, and in August I moved its image build to GitHub Actions for arm64, pushing to AWS ECR over OIDC.
 

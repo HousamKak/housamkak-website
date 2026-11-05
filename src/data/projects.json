@@ -108,7 +108,7 @@
     "repoVisibility": "private (HousamKak/store-mngmt, HousamKak/Store-Management-GS, HSM-brothers/store-platform, HSM-brothers/product-discovery)",
     "hook": "A point-of-sale system that keeps a Lebanese store selling when the internet does not, in dollars and lira.",
     "problem": "A small retail store needs fast checkout, accurate stock and dual-currency (USD/LBP) books, with unreliable connectivity, and the owners still want to see the business remotely.",
-    "built": "Housam is the main author (153 of 184 sampled commits in the main POS; Mahdi Kak contributed 31). He moved the store from an earlier Google Sheets/Apps Script system to an offline-first Node/Express/SQLite POS with transactional checkout, FIFO lot inventory, purchasing, returns, expenses and dual-currency reporting, then added outbox replication to Turso, R2 image copies and a read-only remote viewer. Around it he built a product-discovery tool (photo capture, agent-proposed metadata, human confirmation) and started a central Postgres/PostGIS catalog and fleet platform.",
+    "built": "Housam built it himself. He moved the store from an earlier Google Sheets/Apps Script system to an offline-first Node/Express/SQLite POS with transactional checkout, FIFO lot inventory, purchasing, returns, expenses and dual-currency reporting, then added outbox replication to Turso, R2 image copies and a read-only remote viewer. Around it he built a product-discovery tool (photo capture, agent-proposed metadata, human confirmation) and started a central Postgres/PostGIS catalog and fleet platform.",
     "highlights": [
       "Local SQLite is the source of truth; checkout works offline and replicates later through a trigger/outbox path to Turso",
       "Checkout runs in one database transaction with replay protection bound to user and request hash, server-side pricing and role-restricted at-cost sales",
@@ -118,7 +118,7 @@
       "Evolution story: Google Sheets/Apps Script edition to local-first POS to multi-store platform"
     ],
     "stack": ["JavaScript", "Node.js", "Express", "SQLite", "Turso/libSQL", "Cloudflare R2", "HTML/CSS", "PostgreSQL", "PostGIS", "Tauri", "Google Apps Script"],
-    "status": "Used in a family store per Housam (store count and volume unconfirmed). Central platform is early (2 commits).",
+    "status": "Used in a family store per Housam (store count and volume unconfirmed). Central platform is early.",
     "links": { "live": null, "repo": null },
     "assets": [
       "D:/dev/Complete Work/store-management-local/audit/synthetic-preview/cashier-checkout.png (synthetic data)",
@@ -137,7 +137,6 @@
     "openQuestions": [
       "Which store(s) use it, since when, and can the store be named?",
       "Approximate products, receipts or transactions handled (only if you are comfortable sharing)?",
-      "What exactly did Mahdi Kak build, and how should he be credited?",
       "Has the offline mode been exercised during real outages?",
       "Is the central platform a real plan for other stores or an experiment?"
     ],
