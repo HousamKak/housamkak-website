@@ -43,7 +43,7 @@ const links = [
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: site.url,
     jobTitle: 'Product lead and software engineer', address: { '@type': 'PostalAddress', addressLocality: site.location },
-    sameAs: [site.github, site.linkedin, site.blog, site.blockforge],
+    sameAs: [site.github, site.linkedin, site.youtube, site.instagram, site.blog, site.blockforge],
   })} />
 </head>
 <body>
@@ -66,6 +66,8 @@ const links = [
       <ul>
         <li><a href={site.github}>GitHub</a></li>
         <li><a href={site.linkedin}>LinkedIn</a></li>
+        <li><a href={site.youtube}>YouTube</a></li>
+        <li><a href={site.instagram}>Instagram</a></li>
         <li><a href={site.blog}>Blog</a></li>
         <li><a href={site.blockforge}>BlockForge</a></li>
         <li><a href={site.cvPdf}>CV (PDF)</a></li>

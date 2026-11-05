@@ -11,6 +11,8 @@ export const site = {
   email: 'housam.kak20@gmail.com',
   github: 'https://github.com/HousamKak',
   linkedin: 'https://www.linkedin.com/in/housamkak', // PENDING: confirm slug (housamkak vs Housam-Kak)
+  youtube: 'https://www.youtube.com/@housamkak',
+  instagram: 'https://www.instagram.com/housam.kak/',
   blog: 'https://blog.housamkak.com',
   blockforge: 'https://blockforge.housamkak.com',
   cvPdf: '/cv/Housam-Kak-CV.pdf',

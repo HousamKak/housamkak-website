@@ -1,0 +1,32 @@
+---
+// Image grid of projects, drawn as sheet thumbnails. Used on /work and the home page.
+import { media } from '../lib/data';
+import { io } from '../data/io';
+
+interface Props { items: any[]; number: (w: any) => string; filterable?: boolean }
+const { items, number, filterable = false } = Astro.props;
+const initials = (t: string) => t.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 2).map((s) => s[0]).join('').toUpperCase();
+---
+<ul class="pgrid">
+  {items.map((w) => {
+    const m = media(w.id);
+    const x = io[w.id];
+    return (
+      <li data-cats={filterable ? w.data.categories.join(' ') : undefined}>
+        <a class="pcard" href={`/work/${w.id}`}>
+          <span class="pimg">
+            {m.hero
+              ? <img src={m.hero} alt={m.heroAlt ?? ''} loading="lazy" decoding="async" />
+              : <span class="pblank" aria-hidden="true">{initials(w.data.title)}</span>}
+            <span class="pno">{number(w)}</span>
+          </span>
+          <span class="pbody">
+            <span class="ptitle">{w.data.title}</span>
+            <span class="pio">{x ? <>{x.in}<i>→</i>{x.out.replace(/\.$/, '')}</> : w.data.hook}</span>
+            <span class="pmeta">{w.data.period}</span>
+          </span>
+        </a>
+      </li>
+    );
+  })}
+</ul>

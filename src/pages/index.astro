@@ -1,4 +1,5 @@
 ---
+import ProjectGrid from '../components/ProjectGrid.astro';
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
 import { io } from '../data/io';
@@ -94,19 +95,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', year: '
 
   <section class="sheet-section" aria-labelledby="s2">
     <div class="sechead"><span class="label">Sheet 02 · Parts list</span><h2 id="s2">Everything else, by what it turns into what</h2></div>
-    <table class="parts">
-      <thead><tr><th>No.</th><th>Project</th><th>Input → output</th><th>Period</th></tr></thead>
-      <tbody>
-        {rest.map((w) => (
-          <tr>
-            <td class="n">{num(w)}</td>
-            <td class="name"><a href={`/work/${w.id}`}>{w.data.title}</a></td>
-            <td class="io2">{io[w.id] ? <>{io[w.id].in}<i>→</i>{io[w.id].out.replace(/\.$/, '')}</> : w.data.hook}</td>
-            <td class="when">{w.data.period}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <ProjectGrid items={rest} number={num} />
   </section>
 
   <section class="sheet-section" aria-labelledby="s3">

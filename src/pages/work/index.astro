@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { allWork, media, CAT } from '../../lib/data';
-import { io } from '../../data/io';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import { allWork, CAT } from '../../lib/data';
 
 const work = await allWork();
 const cats = Object.keys(CAT).filter((c) => work.some((w) => w.data.categories.includes(c)));
@@ -26,24 +26,10 @@ const num = (w: typeof work[number]) => String(work.indexOf(w) + 1).padStart(2, 
       {cats.map((c) => <button type="button" data-c={c} aria-pressed="false">{CAT[c]}</button>)}
     </div>
     {groups.map((g) => (
-      <table class="parts" data-group>
-        <caption><h2>{g.title}</h2></caption>
-        <thead><tr><th>No.</th><th></th><th>Project</th><th>Input → output</th><th>Period</th></tr></thead>
-        <tbody>
-          {work.filter((w) => w.data.tier === g.t).map((w) => {
-            const m = media(w.id);
-            return (
-              <tr data-cats={w.data.categories.join(' ')}>
-                <td class="n">{num(w)}</td>
-                <td class="thumb">{m.hero && <img src={m.hero} alt="" loading="lazy" />}</td>
-                <td class="name"><a href={`/work/${w.id}`}>{w.data.title}</a></td>
-                <td class="io2">{io[w.id] ? <>{io[w.id].in}<i>→</i>{io[w.id].out.replace(/\.$/, '')}</> : w.data.hook}</td>
-                <td class="when">{w.data.period}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div class="pgroup" data-group>
+        <h2 class="pgroup-h">{g.title}</h2>
+        <ProjectGrid items={work.filter((w) => w.data.tier === g.t)} number={num} filterable />
+      </div>
     ))}
   </section>
   <script>
