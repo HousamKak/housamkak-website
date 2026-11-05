@@ -1,0 +1,4 @@
+[
+  {"src": "/media/realityforge/shots/01-fireball-cast-frames.webp", "alt": "A grid of sixteen frames rendered by RealityForge showing a fireball attempt in a reacting gas growing from a small seed into a bright head on a stem next to a wall", "caption": "A fireball attempt in the reacting-gas world, rendered frame by frame by the engine: in ordinary gas it becomes a head on a stem.", "kind": "desktop"},
+  {"src": "/media/realityforge/shots/02-fireball-crosswind.webp", "alt": "The same fireball attempt rendered as sixteen frames under a crosswind scenario", "caption": "The same cast in a held-out crosswind scene, one of the scenarios it is tested against.", "kind": "desktop"}
+]

@@ -1,0 +1,7 @@
+[
+  {"src": "/media/h-distribution/shots/01-compose.webp", "alt": "H Distribution composer with a brief on the left, per-platform variant tabs, a native-look Bluesky preview and the scheduled time", "caption": "One brief, one variant per platform, each with a native-look preview and its own schedule (demo post).", "kind": "desktop"},
+  {"src": "/media/h-distribution/shots/02-calendar.webp", "alt": "Month calendar showing demo posts scheduled across Bluesky, Mastodon, LinkedIn, Dev.to and other platforms", "caption": "The calendar: every scheduled variant across platforms in one month view (demo data, nothing connected).", "kind": "desktop"},
+  {"src": "/media/h-distribution/shots/03-dashboard.webp", "alt": "Dashboard with an all-caught-up status, the next seven days of scheduled posts, drafts and recent activity", "caption": "Dashboard: what fires in the next seven days, drafts to finish and recent publishing activity.", "kind": "desktop"},
+  {"src": "/media/h-distribution/shots/04-analytics.webp", "alt": "Analytics view with tracked posts, engagements and impressions, a by-platform table and top posts", "caption": "Analytics collected after publishing, broken down by platform (seeded demo numbers).", "kind": "desktop"},
+  {"src": "/media/h-distribution/shots/05-library.webp", "alt": "Library table of demo posts with type, status, platform dots and actions", "caption": "The library: every post with its status and target platforms.", "kind": "desktop"}
+]

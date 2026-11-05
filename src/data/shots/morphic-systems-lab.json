@@ -1,0 +1,5 @@
+[
+  {"src": "/media/morphic-systems-lab/shots/01-predator-prey.webp", "alt": "Morphic Studio showing a predator-prey model as a mechanism graph, a conformance grid rated C1 M1 A3, a behaviour plot of prey and predator cycles, and a row of refused analyses", "caption": "Predator-prey: the graph, its conformance level and the analyses the model has not earned, struck through.", "kind": "desktop"},
+  {"src": "/media/morphic-systems-lab/shots/02-reservoir-subsystems.webp", "alt": "Morphic Studio showing a reservoir with governance model grouped into Governance, Catchment and Dam subsystems, with a storage behaviour plot and parameter sliders", "caption": "A reservoir model with subsystems, derived loops and a storage trajectory.", "kind": "desktop"},
+  {"src": "/media/morphic-systems-lab/shots/03-analysis-capabilities.webp", "alt": "Morphic Studio analysis panel showing identifiability rank and a list of analysis capabilities, some enabled and some not", "caption": "The analysis panel: identifiability and which methods the model actually supports.", "kind": "desktop"}
+]

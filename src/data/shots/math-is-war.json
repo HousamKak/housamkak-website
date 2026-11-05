@@ -1,0 +1,5 @@
+[
+  {"src": "/media/math-is-war/shots/01-aiming-a-function.webp", "alt": "Math Is War battlefield with floating pixel-art islands, soldiers on both sides and a dotted preview of the curve y = sin(x/4)*6 typed in the function bar", "caption": "Typing y = sin(x/4)*6: the dotted preview shows where the shot will travel.", "kind": "desktop"},
+  {"src": "/media/math-is-war/shots/02-enemy-turn.webp", "alt": "Math Is War during the computer's turn, a purple linear shot crossing the plane with CRITICAL and RAISE COVER labels", "caption": "The computer answers with its own function shot.", "kind": "desktop"},
+  {"src": "/media/math-is-war/shots/03-academy.webp", "alt": "Math Is War academy screen with course cards such as Basic Training, Function Cookbook, Experiments, Aiming Academy and Mode Dojos", "caption": "The academy: courses that introduce function families step by step.", "kind": "desktop"}
+]

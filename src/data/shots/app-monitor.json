@@ -1,0 +1,7 @@
+[
+  {"src": "/media/app-monitor/shots/01-app-overview.webp", "alt": "App Monitor overview for a demo game: crash status banner, 30-day health strip, newest open issues, totals and active-install and version-adoption charts", "caption": "One app at a glance: health strip, newest issues, installs by platform and version adoption (seeded demo data).", "kind": "desktop"},
+  {"src": "/media/app-monitor/shots/02-apps-list.webp", "alt": "App Monitor apps list showing two demo apps with daily health squares, active installs, crash-free rate and open issues", "caption": "Every app on one screen, with a one-line summary of what needs attention.", "kind": "desktop"},
+  {"src": "/media/app-monitor/shots/03-issues.webp", "alt": "Issues list for a demo site with grouped errors, code locations, versions and trend sparklines", "caption": "Errors grouped into issues by fingerprint, with counts, affected installs and trends.", "kind": "desktop"},
+  {"src": "/media/app-monitor/shots/04-stack-trace.webp", "alt": "Issue detail with a source-mapped stack trace, the breadcrumbs leading up to the error and app context", "caption": "One occurrence in detail: symbolicated stack trace and the events that led up to it.", "kind": "desktop"},
+  {"src": "/media/app-monitor/shots/05-releases.webp", "alt": "Releases table for a demo game with installs, sessions, crash-free rate and new issues per version and platform", "caption": "Releases per platform with crash-free sessions and a minimum supported version switch.", "kind": "desktop"}
+]

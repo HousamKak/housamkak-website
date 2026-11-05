@@ -2,23 +2,24 @@
 import '../styles/global.css';
 import { site } from '../data/site';
 
-interface Props { title?: string; description?: string; og?: string | null; nav?: string; type?: 'website' | 'article'; }
-const { title, description = site.bio, og, nav = '', type = 'website' } = Astro.props;
-const fullTitle = title ? `${title} · ${site.name}` : `${site.name}: ${site.tagline}`;
+interface Props { title?: string; description?: string; og?: string | null; nav?: string; type?: 'website' | 'article'; sheet?: string; dwg?: string; }
+const { title, description = site.bio, og, nav = '', type = 'website', sheet = 'Index sheet', dwg = '00' } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name}: ${site.thesis}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(og ?? '/og/default.png', site.url).href;
+const now = new Date();
+const rev = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}`;
 const links = [
   { href: '/work', label: 'Work', key: 'work' },
   { href: '/writing', label: 'Writing', key: 'writing' },
   { href: '/cv', label: 'CV', key: 'cv' },
-  { href: '/3d', label: 'Explore in 3D', key: '3d' },
 ];
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{fullTitle}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
@@ -30,48 +31,59 @@ const links = [
   <meta property="og:image" content={ogImage}>
   <meta property="og:site_name" content={site.name}>
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#13201C">
-  <link rel="alternate" type="application/rss+xml" title="Housam Kak, writing" href={`${site.blog}/rss.xml`}>
+  <meta name="theme-color" content="#FBFBFA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" type="application/rss+xml" title="The Housam & Review" href={`${site.blog}/rss.xml`}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <script is:inline>
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: site.url,
     jobTitle: 'Product lead and software engineer', address: { '@type': 'PostalAddress', addressLocality: site.location },
     sameAs: [site.github, site.linkedin, site.blog, site.blockforge],
   })} />
-  <slot name="head" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-h wrap">
-    <div class="inner">
-      <a class="brand" href="/">Housam <span>Kak</span></a>
+  <div class="sheet">
+    <div class="zones-top" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="zones-left" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <header class="top">
+      <a class="wordmark" href="/">{site.name}<small>DWG HK-{dwg} · {sheet} · Rev {rev}</small></a>
       <nav class="nav" aria-label="Main">
         {links.map((l) => <a href={l.href} aria-current={nav === l.key ? 'page' : undefined}>{l.label}</a>)}
         <a href={site.blog}>Blog ↗</a>
+        <a href="#contact">Contact</a>
+        <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch light or dark">Light / dark</button>
       </nav>
-    </div>
-  </header>
-  <main id="main"><slot /></main>
-  <footer class="site-f wrap">
-    <div class="inner">
-      <p><strong>{site.name}</strong>. {site.bio}</p>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="foot" id="contact">
+      <span>{site.name} · <span>{site.email}</span><button class="copy-btn" type="button" data-copy={site.email}>copy</button></span>
       <ul>
-        <li><span>{site.email}</span> <button class="copy-btn" type="button" data-copy={site.email}>copy</button></li>
         <li><a href={site.github}>GitHub</a></li>
         <li><a href={site.linkedin}>LinkedIn</a></li>
         <li><a href={site.blog}>Blog</a></li>
         <li><a href={site.blockforge}>BlockForge</a></li>
         <li><a href={site.cvPdf}>CV (PDF)</a></li>
       </ul>
-    </div>
-  </footer>
+      <span>Drawn in {site.location} · Rev {rev}</span>
+    </footer>
+  </div>
   <script>
+    document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = isDark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch {}
+    });
     document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) => {
       b.addEventListener('click', async () => {
         try { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = 'copied'; }
-        catch { b.textContent = 'select the address'; }
+        catch { b.textContent = 'select it'; }
         setTimeout(() => (b.textContent = 'copy'), 1600);
       });
     });

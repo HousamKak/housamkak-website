@@ -1,0 +1,6 @@
+[
+  {"src": "/media/flying-screen/shots/01-feasibility-map.webp", "alt": "Flying screen co-design tool showing a feasibility map of gross mass over endurance and screen mass, with a hatched no-solution region and the closed-form wall drawn as a dashed line", "caption": "Feasibility map: where a hovering screen closes, and the analytic wall where it stops.", "kind": "desktop"},
+  {"src": "/media/flying-screen/shots/02-the-wall.webp", "alt": "The wall view: fixed load, maximum carryable mass and screen budget, a wall-against-endurance plot, sensitivity bars and a mass iteration convergence plot", "caption": "The wall: sensitivity exponents and the mass spiral converging for DESK-1.", "kind": "desktop"},
+  {"src": "/media/flying-screen/shots/03-flight-simulation.webp", "alt": "Flight view after a 6-DOF simulation: mean electrical power, tracking lag, screen tilt, top and side views and power and tracking plots", "caption": "A 6-DOF flight following a pacing person, with power and tracking error.", "kind": "desktop"},
+  {"src": "/media/flying-screen/shots/04-build-assembly.webp", "alt": "Build view showing the DESK-1 quadcopter assembly in three-quarter view with callouts for the panel, gimbal, motors, propellers, arms and battery", "caption": "The DESK-1 assembly, every dimension produced by the closure.", "kind": "desktop"}
+]

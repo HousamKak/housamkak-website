@@ -1,78 +1,127 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
-import { allWork, media, CAT, tierLabel } from '../lib/data';
+import { io } from '../data/io';
+import { allWork, media, CAT } from '../lib/data';
 import { writing } from '../lib/writing';
 
 const work = await allWork();
 const flagship = work.filter((w) => w.data.tier === 1);
-const lead = flagship.find((w) => w.id === 'blockforge') ?? flagship[0];
-const rest = flagship.filter((w) => w !== lead);
-const leadMedia = lead ? media(lead.id) : null;
-const leadImg = leadMedia?.hero ?? '/img/baalbek.webp';
-const selected = work.filter((w) => w.data.tier === 2).slice(0, 8);
+const lead = flagship.find((w) => w.id === 'blockforge')!;
+const four = flagship.filter((w) => w !== lead);
+const rest = work.filter((w) => w.data.tier > 1);
 const posts = (await writing()).slice(0, 4);
+const num = (w: typeof work[number]) => String(work.indexOf(w) + 1).padStart(2, '0');
+const short: Record<string, string> = { 'pos-store-management': 'POS' };
+const conv = [
+  { s: 'blockforge', src: 'a world script', out: 'a voxel world, then a film' },
+  { s: 'h-system', src: 'a wire', out: 'an agent driving an applet' },
+  { s: 'pos-store-management', src: 'a sale', out: 'a ledger in USD and LBP' },
+  { s: 'anythyng', src: 'a sentence', out: 'an app on your phone' },
+  { s: 'uipen', src: 'a pin on a page', out: 'the right line of code' },
+];
+const leadThumb = media('blockforge').turntables.find((t) => t.src.includes('train'));
 const fmt = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
 ---
-<Base>
-  <div class="wrap"><div class="inner">
-    <header class="hero">
-      <div class="kicker">{site.name} · {site.location}</div>
-      <h1 class="display">Engineer, mathematician,<br><span>builder of systems.</span></h1>
-      <p class="lede">I lead product and software delivery for enterprise AI, and build my own tools on the side: an agent workspace, a programmable 3D world engine and offline-first retail software.</p>
-      <div class="now">
-        <div><span class="dot"></span><em>Now:</em> product lead and senior software on an enterprise conversational AI pilot</div>
-        <div><em>Training:</em> B.E. Mechanical Engineering, major in Mathematics, AUB</div>
-      </div>
-    </header>
-
-    {lead && (
-      <section class="flag" aria-label="Flagship systems">
-        <a class="feature" href={`/work/${lead.id}`}>
-          <img src={leadImg} alt={leadMedia?.hero ? (leadMedia.heroAlt ?? `${lead.data.title}: hero render`) : 'BlockForge viewer: the Baalbek 1970 world at night, title card in Arabic and English'} width="1600" height="1000" fetchpriority="high">
-          <div class="cap">
-            <div class="kicker">Flagship · {CAT[lead.data.categories[0]] ?? 'System'}</div>
-            <h3>{lead.data.title}</h3>
-            <p>{lead.data.hook}</p>
-          </div>
-        </a>
-        <div class="stack">
-          {rest.map((w, i) => (
-            <a class="mini" href={`/work/${w.id}`}>
-              <span class="num">0{i + 2}</span>
-              <h3>{w.data.title}</h3>
-              <p>{w.data.hook}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <section aria-labelledby="sel">
-      <div class="section-h"><h2 id="sel">Selected work</h2><a href="/work">All {work.length} projects →</a></div>
-      <div class="rows">
-        {selected.map((w) => (
-          <a class="row" href={`/work/${w.id}`}>
-            <span class="t">{tierLabel(w.data.tier)}</span>
-            <h3>{w.data.title}</h3>
-            <p>{w.data.hook}</p>
-            <span class="cat">{w.data.categories.slice(0, 2).map((c) => CAT[c] ?? c).join(' · ')}</span>
-          </a>
+<Base nav="" sheet="Index sheet" dwg="00">
+  <div class="hero">
+    <div>
+      <p class="label" style="margin-bottom:18px">Engineer and mathematician · {site.location}</p>
+      <h1>{site.thesis}</h1>
+      <p class="lede">{site.lede}</p>
+      <nav class="conv" aria-label="What each flagship compiles">
+        {conv.map((c) => (
+          <a href={`/work/${c.s}`}><span class="src">{c.src}</span><span class="arrow" aria-hidden="true">→</span><span>{c.out}</span><span class="who">{short[c.s] ?? work.find((w) => w.id === c.s)?.data.title}</span></a>
         ))}
+      </nav>
+      <div class="cta"><a class="btn" href="/work">See the work</a><a class="btn ghost" href={site.cvPdf}>Download CV</a></div>
+    </div>
+    <figure class="fig">
+      <div class="frame">
+        <img src="/media/blockforge/hero.webp" alt={media('blockforge').heroAlt ?? 'A BlockForge render'} width="1600" height="900" fetchpriority="high">
+        <span class="balloon" style="left:63%;top:49%">1</span>
+        <span class="balloon" style="left:48%;top:86%">2</span>
       </div>
-    </section>
+      <div class="dim"><span>1600 × 900 px · engine render</span></div>
+      <figcaption><b>FIG. 0</b><span>BlockForge output. <b>1</b> the arches and <b>2</b> the river come from the same world source.</span></figcaption>
+      <div class="notes"><span class="label">General notes</span><ol>
+        <li>3D images are BlockForge output only. No stock renders, no decoration.</li>
+        <li>Screens are captured from the running apps with demo data.</li>
+        <li>Counts in the title blocks come from the repositories; self-reported figures say so.</li>
+      </ol></div>
+    </figure>
+  </div>
 
-    <section aria-labelledby="wr">
-      <div class="section-h"><h2 id="wr">Writing</h2><a href="/writing">Everything →</a></div>
-      <div class="writing">
+  <section class="sheet-section" aria-labelledby="s1">
+    <div class="sechead"><span class="label">Sheet 01 · Flagships</span><h2 id="s1">Five systems, each with its input and its output</h2><span class="label">5 of {work.length}</span></div>
+
+    <article class="item flag-main">
+      <figure class="fig">
+        {leadThumb ? (
+          <div class="frame"><img src={leadThumb.poster} alt={leadThumb.alt} width="1280" height="720" loading="lazy">
+            <span class="balloon" style="left:18%;top:62%">1</span><span class="balloon" style="left:72%;top:28%">2</span></div>
+        ) : null}
+        <figcaption><b>FIG. 1</b><span>Turntable render from the engine. <b>1</b> locomotive, <b>2</b> carriages, both compiled objects.</span></figcaption>
+      </figure>
+      <div>
+        <div class="no"><span class="label">{num(lead)} · {lead.data.categories.slice(0, 3).map((c) => CAT[c]).join(', ')}</span><span class="label">{lead.data.period}</span></div>
+        <h3 style="font-size:30px;font-variation-settings:'wdth' 118"><a href="/work/blockforge">{lead.data.title}</a></h3>
+        <p class="hook" style="font-size:18px">{lead.data.hook}</p>
+        <dl class="io">
+          <div><dt>IN</dt><dd>{io.blockforge.in}</dd></div>
+          <div><dt>OUT</dt><dd class="plain">{io.blockforge.out}</dd></div>
+          {io.blockforge.see && <div><dt>SEE</dt><dd class="plain">{io.blockforge.see}</dd></div>}
+        </dl>
+        <p style="margin-top:16px"><a class="link" href="/work/blockforge">Read the case study</a></p>
+      </div>
+    </article>
+
+    <div class="flags">
+      {four.map((w) => {
+        const m = media(w.id);
+        return (
+          <article class="item">
+            <div class="no"><span class="label">{num(w)} · {CAT[w.data.categories[0]]}</span><span class="label">{w.data.period.split(' to ')[0]}</span></div>
+            {m.hero && <figure class="fig"><a class="frame ratio" href={`/work/${w.id}`} style="display:block"><img src={m.hero} alt={m.heroAlt ?? w.data.title} loading="lazy"></a></figure>}
+            <h3><a href={`/work/${w.id}`}>{w.data.title === 'Store POS and management ecosystem' ? 'Store POS' : w.data.title}</a></h3>
+            <p class="hook">{w.data.hook}</p>
+            {io[w.id] && <dl class="io"><div><dt>IN</dt><dd>{io[w.id].in}</dd></div><div><dt>OUT</dt><dd class="plain">{io[w.id].out}</dd></div></dl>}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="sheet-section" aria-labelledby="s2">
+    <div class="sechead"><span class="label">Sheet 02 · Parts list</span><h2 id="s2">Everything else, by what it turns into what</h2><span class="label">{rest.length} of {work.length}</span></div>
+    <table class="parts">
+      <thead><tr><th>No.</th><th>Project</th><th>Input → output</th><th>Period</th></tr></thead>
+      <tbody>
+        {rest.map((w) => (
+          <tr>
+            <td class="n">{num(w)}</td>
+            <td class="name"><a href={`/work/${w.id}`}>{w.data.title}</a></td>
+            <td class="io2">{io[w.id] ? <>{io[w.id].in}<i>→</i>{io[w.id].out.replace(/\.$/, '')}</> : w.data.hook}</td>
+            <td class="when">{w.data.period}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sheet-section" aria-labelledby="s3">
+    <div class="sechead"><span class="label">Sheet 03 · Writing</span><h2 id="s3">Notes from the blog</h2><a class="label" href={site.blog} style="color:var(--line)">blog.housamkak.com ↗</a></div>
+    <table class="parts">
+      <tbody>
         {posts.map((p) => (
-          <a class="post" href={p.url}>
-            <div class="kicker">{p.kind} · {fmt(p.date)}</div>
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
-          </a>
+          <tr>
+            <td class="when" style="width:110px">{fmt(p.date)}</td>
+            <td class="name"><a href={p.url}>{p.title}</a></td>
+            <td style="color:var(--muted);font-size:15.5px">{p.description}</td>
+            <td class="when">{p.kind}</td>
+          </tr>
         ))}
-      </div>
-    </section>
-  </div></div>
+      </tbody>
+    </table>
+  </section>
 </Base>

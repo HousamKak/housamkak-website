@@ -1,0 +1,5 @@
+[
+  {"src": "/media/jutsu-dojo/shots/01-water-cast-shrine.webp", "alt": "Jutsu Dojo night shrine scene with a torii gate and moon, a burst of blue water particles and the cast name shown in Japanese", "caption": "A water technique cast into the 3D night shrine (demo cast, no camera feed).", "kind": "desktop"},
+  {"src": "/media/jutsu-dojo/shots/02-arena-fireball.webp", "alt": "Jutsu Dojo chakra arena: a fireball hitting an earth wall made of blocks, with a key legend, cost readout, tick counter, replay hash and a verify replay button", "caption": "The chakra arena: a deterministic simulation with tick count, replay hash and replay verification.", "kind": "desktop"},
+  {"src": "/media/jutsu-dojo/shots/03-fire-cast-shrine.webp", "alt": "Jutsu Dojo night shrine with a glowing fireball effect under the torii gate", "caption": "A fire technique effect in the shrine scene.", "kind": "desktop"}
+]

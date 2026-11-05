@@ -1,0 +1,7 @@
+[
+  {"src": "/media/video-studio/shots/01-script-to-film.webp", "alt": "A scene of the Studio script source next to the compiled film frame it produced, with the studio lint and media report output underneath", "caption": "Script to film: the scene source on the left, the frame it compiled to on the right, and the pipeline's lint and media reports.", "kind": "desktop"},
+  {"src": "/media/video-studio/shots/02-coastline-ruler.webp", "alt": "Film frame: Britain's coastline traced with a 50 km ruler beside a table of ruler length, steps and measured length", "caption": "From the finished fractals film: the coastline measured with shorter and shorter rulers, a Manim scene paced to the narration.", "kind": "desktop"},
+  {"src": "/media/video-studio/shots/03-koch-dimension.webp", "alt": "Film frame: a Koch curve beside the equation 4 equals 3 to the power D", "caption": "Working out the dimension of the Koch curve, animated beat by beat.", "kind": "desktop"},
+  {"src": "/media/video-studio/shots/04-julia-set.webp", "alt": "Film frame: a close-up of a colourful Julia set boundary", "caption": "A Julia set render from the same film.", "kind": "desktop"},
+  {"src": "/media/video-studio/shots/05-illustration.webp", "alt": "Film frame: an illustrated scene of a man at a desk with radio equipment, holding a sheet of paper", "caption": "An illustrated beat delivered into the timeline by its stable media id.", "kind": "desktop"}
+]

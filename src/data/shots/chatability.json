@@ -1,0 +1,32 @@
+[
+  {
+    "src": "/media/chatability/shots/02-region-select.webp",
+    "alt": "The page is dimmed except for a selected rectangle around a chart of square wave partial sums, with a hint at the top reading drag to select an area.",
+    "caption": "Region capture: drag over exactly the part of the page you want to ask about.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/chatability/shots/03-capture-staged-question.webp",
+    "alt": "The chat panel opened beside the slide, with suggested prompts such as Explain the diagram, a thumbnail of the captured chart staged in the composer and a typed question about the overshoot.",
+    "caption": "The capture is staged in the composer, ready to be asked about alongside suggested prompts.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/chatability/shots/04-reader.webp",
+    "alt": "The full-screen PDF reader showing a lecture slide on Fourier partial sums, with a bottom toolbar for pages, explain all, highlight, ink, notes, colours, zoom and a page counter reading 4 of 6, and the orange capture orb.",
+    "caption": "The immersive reader, with annotation tools and the capture orb in the corner.",
+    "kind": "desktop"
+  },
+  {
+    "src": "/media/chatability/shots/05-mobile-chat.webp",
+    "alt": "Phone layout of Chatability with the chat sheet covering the slide, showing a captured question, the answer with a formula, and a staged screen capture in the composer.",
+    "caption": "The same capture and chat flow in the phone layout.",
+    "kind": "mobile"
+  },
+  {
+    "src": "/media/chatability/shots/01-answer-about-capture.webp",
+    "alt": "The Chatability reader with a square wave partial sums slide on the left and a chat panel on the right, where a question marked With capture asks why the red curve overshoots and the answer explains the Gibbs phenomenon with a rendered formula and bullet points.",
+    "caption": "Illustrative: the layout of an answer about a captured figure, shown next to the slide it came from. The answer text was written for this demo, not generated.",
+    "kind": "desktop"
+  }
+]

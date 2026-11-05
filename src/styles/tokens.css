@@ -1,0 +1,144 @@
+/* housamkak.com identity: "Drawing Set" (Direction A)
+   Tokens and base typography. Drop into src/styles/ and import before component styles.
+   Fonts (Google Fonts only): Archivo (display and body, one family on its width axis), JetBrains Mono (utility).
+   Prefer a <link rel="preconnect"> plus <link rel="stylesheet"> in the head; this @import is the fallback. */
+
+:root {
+  /* Surfaces */
+  --surround: #EEF0F2;   /* behind the sheet */
+  --paper: #FBFBFA;      /* the sheet: neutral white, never cream */
+  --hair: #E1E4E8;       /* inline code, hairline fills */
+  --rule: #C9CED4;       /* section rules, table borders (decorative) */
+
+  /* Ink */
+  --ink: #14171B;        /* body text 17.4:1 on paper */
+  --muted: #4A5159;      /* captions, labels 7.8:1 */
+  --faint: #6B737C;      /* zone markers and other non-essential UI only, 4.6:1 */
+
+  /* Construction colours (from Woodr: blue lines, amber points) */
+  --line: #1E43C4;       /* links, dimension lines, IN/OUT keys 7.6:1 */
+  --point: #F2A600;      /* balloon fill only, never text on paper */
+  --point-ink: #8A5300;  /* amber when it must be text, 6.1:1 */
+  --on-point: #14171B;   /* numbers inside balloons, 8.8:1 */
+
+  --shot: #0E1115;       /* backdrop behind screenshots while they load */
+
+  /* Type */
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  --wdth-display: 112;   /* headings: semi expanded, like drafting lettering */
+  --wdth-mark: 125;      /* wordmark and title-block heads only */
+  --wdth-body: 102;
+
+  /* Scale (1.25 major third on an 18px base; display sizes are fluid) */
+  --step--2: 11.5px;     /* mono labels, uppercase, tracked */
+  --step--1: 14.5px;     /* captions, table cells, fact panel */
+  --step-0: 18px;        /* UI body */
+  --step-prose: 19px;    /* long-form case study text (18px under 760px) */
+  --step-1: 21px;        /* h3, lede is 20px */
+  --step-2: clamp(26px, 2.6vw, 36px);  /* h2 */
+  --step-3: clamp(38px, 5.4vw, 76px);  /* h1 */
+
+  --leading-body: 1.6;
+  --leading-prose: 1.65;
+  --leading-tight: 1.05;
+  --measure: 68ch;       /* prose line length: 60 to 72 characters */
+  --measure-lede: 58ch;
+
+  /* Space and grid (8px base) */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 40px; --space-8: 56px; --space-9: 72px;
+  --sheet-max: 1360px;   /* sheet width including its 56px margins */
+  --gutter: 32px;        /* 12-column grid gutter */
+  --gutter-phone: 16px;  /* side gutter at phone width */
+
+  /* Lines */
+  --stroke-heavy: 1.5px; /* sheet border, section heads, title block */
+  --stroke: 1px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-1: 120ms; --dur-2: 220ms; --dur-3: 420ms;
+
+  color-scheme: light;
+}
+
+/* Dark: the same sheet, drawn in light ink. Follows the OS unless the reader picks a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surround: #0B0C0E; --paper: #111315; --hair: #22262B; --rule: #3A4048;
+    --ink: #E8EAED; --muted: #A6ADB5; --faint: #858D96;
+    --line: #8FAEFF; --point: #FFC53D; --point-ink: #FFC53D; --on-point: #14171B;
+    --shot: #000000;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --surround: #0B0C0E; --paper: #111315; --hair: #22262B; --rule: #3A4048;
+  --ink: #E8EAED; --muted: #A6ADB5; --faint: #858D96;
+  --line: #8FAEFF; --point: #FFC53D; --point-ink: #FFC53D; --on-point: #14171B;
+  --shot: #000000;
+  color-scheme: dark;
+}
+
+/* ---------- Base typography ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--surround);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  font-variation-settings: "wdth" var(--wdth-body);
+  letter-spacing: .006em;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0; text-wrap: balance; }
+h1 { font-size: var(--step-3); font-weight: 700; line-height: 1.02; letter-spacing: -.015em; font-variation-settings: "wdth" var(--wdth-display); }
+h2 { font-size: var(--step-2); font-weight: 700; line-height: 1.1; letter-spacing: -.01em; font-variation-settings: "wdth" var(--wdth-display); }
+h3 { font-size: var(--step-1); font-weight: 650; line-height: 1.2; font-variation-settings: "wdth" 108; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { color: var(--line); }
+:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; }
+img, video { display: block; max-width: 100%; height: auto; }
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: .86em; }
+:not(pre) > code { background: var(--hair); padding: .1em .35em; }
+.prose { max-width: var(--measure); }
+.prose p, .prose li { font-size: var(--step-prose); line-height: var(--leading-prose); }
+.lede { font-size: 20px; line-height: 1.55; max-width: var(--measure-lede); }
+.label { font: 600 var(--step--2)/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.num, td, .facts dd { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .prose p, .prose li { font-size: 18px; }
+}
+
+/* ---------- Signature devices (minimal primitives) ---------- */
+/* Balloon: a numbered amber point that ties a spot on a figure to a note. */
+.balloon {
+  position: absolute; width: 28px; height: 28px; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: grid; place-items: center;
+  background: var(--point); color: var(--on-point);
+  border: var(--stroke-heavy) solid #14171B;
+  box-shadow: 0 0 0 3px rgb(255 255 255 / .85);
+  font: 600 12px/1 var(--font-mono);
+}
+/* Dimension line: sits under a figure and states what it measures. */
+.dim {
+  position: relative; height: 18px; margin-top: var(--space-2);
+  border-inline: var(--stroke) solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.dim::before { content: ""; position: absolute; inset-inline: 0; top: 50%; border-top: var(--stroke) solid var(--line); }
+.dim > span { position: relative; background: var(--paper); padding: 0 var(--space-2); font: 500 11px/1 var(--font-mono); color: var(--line); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

@@ -5,23 +5,28 @@ import { writing } from '../lib/writing';
 const items = await writing();
 const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
-<Base title="Writing" nav="writing" description="Posts and papers by Housam Kak on agents, 3D engines, reverse engineering, engineering and business software.">
-  <div class="wrap"><div class="inner">
-    <header class="cs-head">
-      <div class="kicker">Writing · from <a href={site.blog}>blog.housamkak.com</a></div>
+<Base title="Writing" nav="writing" sheet="Writing" dwg="02" description="Posts and papers by Housam Kak on agents, 3D engines, reverse engineering, engineering and business software.">
+  <header class="cs-head">
+    <div><p class="label">Writing</p><p class="label" style="margin-top:6px">{items.length} entries</p></div>
+    <div>
       <h1>Writing</h1>
-      <p class="lede">Long-form posts and papers. They live on the blog, which has its own front page and archive.</p>
-    </header>
-    <div class="rows">
-      {items.map((p) => (
-        <a class="row" href={p.url}>
-          <span class="t">{p.kind}</span>
-          <h3>{p.title}</h3>
-          <p>{p.description}</p>
-          <span class="cat">{fmt(p.date)}</span>
-        </a>
-      ))}
+      <p class="lede">Long-form posts and papers live on the blog, The Housam &amp; Review, which has its own look and its own front page. This is its contents list.</p>
     </div>
-    <p style="margin-bottom:64px"><a href={site.blog} class="links" style="color:var(--teal);font-family:var(--f-mono)">Open the blog ↗</a></p>
-  </div></div>
+  </header>
+  <section class="sheet-section">
+    <table class="parts">
+      <thead><tr><th>Date</th><th>Title</th><th>Summary</th><th>Kind</th></tr></thead>
+      <tbody>
+        {items.map((p) => (
+          <tr>
+            <td class="when" style="width:120px">{fmt(p.date)}</td>
+            <td class="name"><a href={p.url}>{p.title}</a></td>
+            <td style="color:var(--muted);font-size:15.5px">{p.description}</td>
+            <td class="when">{p.kind}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p style="margin-top:24px"><a class="btn ghost" href={site.blog}>Open the blog ↗</a></p>
+  </section>
 </Base>

@@ -1,0 +1,7 @@
+[
+  {"src": "/media/anythyng/shots/01-tip-calculator.webp", "alt": "A generated tip calculator app on a phone screen: a 48.50 dollar bill, 18 percent tip, split between two, 28.62 dollars each", "caption": "A tip calculator AnyThyng generated from one sentence, running as a published app.", "kind": "mobile"},
+  {"src": "/media/anythyng/shots/02-habits.webp", "alt": "A generated habit tracker app with three habits, each with a streak counter and a row of check-in dots", "caption": "A habit tracker with daily check-ins and streaks.", "kind": "mobile"},
+  {"src": "/media/anythyng/shots/03-tank-combat.webp", "alt": "A generated tank combat game showing a map select screen with six arenas, the first unlocked", "caption": "Games too: a tank combat game with unlockable maps, refined over eight versions.", "kind": "mobile"},
+  {"src": "/media/anythyng/shots/04-food-log.webp", "alt": "A generated food log app with day, calendar and stats tabs and empty breakfast, lunch, dinner and snack sections", "caption": "A food log with day, calendar and stats views.", "kind": "mobile"},
+  {"src": "/media/anythyng/shots/05-pocket-seismograph.webp", "alt": "A generated pocket seismograph app reading the phone motion sensor, showing a g-force readout and a live trace", "caption": "A pocket seismograph that reads the phone's motion sensor.", "kind": "mobile"}
+]

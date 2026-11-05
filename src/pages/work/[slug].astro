@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Circuit from '../../components/Circuit.astro';
 import { render } from 'astro:content';
 import { allWork, media, CAT, tierLabel, host } from '../../lib/data';
+import { io } from '../../data/io';
+import { site } from '../../data/site';
 
 export async function getStaticPaths() {
   const work = await allWork();
@@ -15,60 +17,137 @@ const d = entry.data;
 const m = media(entry.id);
 const { Content } = await render(entry);
 const prev = work[idx - 1], next = work[idx + 1];
+const no = String(idx + 1).padStart(2, '0');
+const isBF = entry.id === 'blockforge';
+const looks = isBF ? m.gallery.find((g) => g.src.includes('looks-grid')) : undefined;
+const figs = [...m.shots, ...m.gallery.filter((g) => g !== looks)];
+const fromApp = m.shots.length > 0 || (m.heroCaption !== undefined);
+let n = 0;
+const fig = () => `FIG. ${++n}`;
+const heroFig = m.hero ? fig() : '';
 ---
-<Base title={d.title} description={d.summary} og={m.og ?? m.hero} nav="work" type="article">
-  <div class="wrap"><div class="inner">
-    <header class="cs-head">
-      <div class="kicker"><a href="/work">Work</a> · {tierLabel(d.tier)} · {d.categories.map((c) => CAT[c] ?? c).join(' · ')}</div>
+<Base title={d.title} description={d.summary} og={m.og ?? m.hero} nav="work" type="article" sheet={d.title} dwg={no}>
+  <header class="cs-head">
+    <div>
+      <p class="label">Sheet {no} of {work.length}</p>
+      <p class="label" style="margin-top:6px"><a href="/work" style="text-decoration:none">Parts list</a> · {tierLabel(d.tier)}</p>
+    </div>
+    <div>
       <h1>{d.title}</h1>
       <p class="lede">{d.hook}</p>
-    </header>
-    <dl class="facts">
-      <div><dt>Role</dt><dd>{d.role}</dd></div>
-      <div><dt>Period</dt><dd>{d.period}</dd></div>
-      <div><dt>Status</dt><dd>{d.status}</dd></div>
-      <div><dt>Links</dt><dd class="links">
-        {d.links.live && <a href={d.links.live}>{host(d.links.live)} ↗</a>}
-        {d.links.live && d.links.repo && <br />}
-        {d.links.repo && <a href={d.links.repo}>source ↗</a>}
-        {!d.links.live && !d.links.repo && <span class="muted">Private; demo on request</span>}
-      </dd></div>
-    </dl>
-
-    {m.video ? (
-      <div class="cs-hero"><video src={m.video.src} poster={m.video.poster ?? m.hero ?? undefined} controls muted playsinline preload="none"></video></div>
-    ) : m.hero ? (
-      <div class="cs-hero"><img src={m.hero} alt={m.heroAlt ?? `${d.title}: ${d.hook}`} loading="eager" /></div>
-    ) : null}
-
-    <div class="cs-body">
-      <article>
-        {d.confidential && <p class="note">Client work. This is a public summary: it leaves out the client's name, internal systems and data.</p>}
-        {entry.id === 'h-system' && <Circuit work={work} focus="h-system" />}
-        <div class="prose"><Content /></div>
-        {m.turntables.length > 0 && (
-          <div class="gallery">
-            {m.turntables.map((t) => <figure><video src={t.src} poster={t.poster} controls muted loop playsinline preload="none" aria-label={t.alt}></video>{t.caption && <figcaption>{t.caption}</figcaption>}</figure>)}
-          </div>
-        )}
-        {m.gallery.length > 0 && (
-          <div class="gallery">
-            {m.gallery.map((g) => <figure><img src={g.src} alt={g.alt} loading="lazy" />{g.caption && <figcaption>{g.caption}</figcaption>}</figure>)}
-          </div>
-        )}
-      </article>
-      <aside class="cs-side">
-        {d.highlights.length > 0 && <div><h2>Highlights</h2><ul>{d.highlights.map((h) => <li>{h}</li>)}</ul></div>}
-        {d.stack.length > 0 && <div><h2>Stack</h2><div class="tags">{d.stack.map((s) => <span>{s}</span>)}</div></div>}
-        {d.credits.length > 0 && <div><h2>Credits</h2><ul>{d.credits.map((c) => <li>{c}</li>)}</ul></div>}
-        {d.links.writing && <div><h2>Writing</h2><a class="links" href={d.links.writing}>Read the story ↗</a></div>}
-        {entry.id === 'blockforge' && <div><h2>3D</h2><a class="links" href="/3d">Walk the project city →</a></div>}
-      </aside>
+      {io[entry.id] && (
+        <dl class="io">
+          <div><dt>IN</dt><dd>{io[entry.id].in}</dd></div>
+          <div><dt>OUT</dt><dd class="plain">{io[entry.id].out}</dd></div>
+          {io[entry.id].see && <div><dt>SEE</dt><dd class="plain">{io[entry.id].see}</dd></div>}
+        </dl>
+      )}
     </div>
+  </header>
 
-    <nav class="pager" aria-label="More work">
-      {prev ? <a href={`/work/${prev.id}`}><span class="kicker">Previous</span><b>{prev.data.title}</b></a> : <span />}
-      {next ? <a href={`/work/${next.id}`} style="text-align:right"><span class="kicker">Next</span><b>{next.data.title}</b></a> : <span />}
-    </nav>
-  </div></div>
+  {(m.video || m.hero) && (
+    <div class="cs-hero">
+      <figure class="fig">
+        <div class="frame">
+          {m.video
+            ? <video src={m.video.src} poster={m.video.poster ?? m.hero ?? undefined} controls muted playsinline preload="none"></video>
+            : <img src={m.hero!} alt={m.heroAlt ?? d.title} />}
+        </div>
+        <div class="dim"><span>{isBF ? 'engine render' : fromApp ? 'captured from the running app · demo data' : 'project still'}</span></div>
+        <figcaption><b>{heroFig}</b><span>{m.heroCaption ?? m.heroAlt ?? d.title}</span></figcaption>
+      </figure>
+    </div>
+  )}
+
+  <div class="case">
+    <article class="prose">
+      {d.confidential && <p class="notice">Client work. This is a public summary: it leaves out the client's name, internal systems and data.</p>}
+      <Content />
+      {entry.id === 'h-system' && <Circuit work={work} focus="h-system" label={fig()} />}
+      {looks && (
+        <figure class="fig">
+          <div class="frame"><img src={looks.src} alt={looks.alt} width="1600" height="900" loading="lazy" />
+            <span class="balloon" style="left:4%;top:7%">1</span><span class="balloon" style="left:54%;top:7%">2</span><span class="balloon" style="left:4%;top:57%">3</span><span class="balloon" style="left:54%;top:57%">4</span></div>
+          <div class="dim"><span>one world · one recipe · four looks</span></div>
+          <figcaption><b>{fig()}</b><span>The same plaza, compiled once and rendered with four look tags. No geometry changes between frames.</span></figcaption>
+          <div class="legend"><span data-n="1">none</span><span data-n="2">gameboy</span><span data-n="3">crt</span><span data-n="4">pixel3d</span></div>
+        </figure>
+      )}
+    </article>
+
+    <aside class="titleblock" aria-label="Project facts">
+      <div class="tb-head"><span class="label">Title block</span><h2>{d.title.length > 18 ? d.title.split(' ').slice(0, 2).join(' ') : d.title}</h2></div>
+      <dl>
+        <dt>Role</dt><dd>{d.role}</dd>
+        <dt>Period</dt><dd>{d.period}</dd>
+        <dt>Status</dt><dd>{d.status}</dd>
+        <dt>Field</dt><dd>{d.categories.map((c) => CAT[c] ?? c).join(', ')}</dd>
+        {d.stack.length > 0 && <><dt>Built with</dt><dd class="stack">{d.stack.join(' · ')}</dd></>}
+        {d.highlights.length > 0 && <><dt>Notes</dt><dd><ul>{d.highlights.map((h) => <li>{h}</li>)}</ul></dd></>}
+        {d.credits.length > 0 && <><dt>Credits</dt><dd><ul>{d.credits.map((c) => <li>{c}</li>)}</ul></dd></>}
+        {d.links.live && <><dt>Live</dt><dd><a href={d.links.live}>{host(d.links.live)}</a></dd></>}
+        {d.links.repo && <><dt>Source</dt><dd><a href={d.links.repo}>{host(d.links.repo)}</a></dd></>}
+        {d.links.writing && <><dt>Writing</dt><dd><a href={d.links.writing}>Read the story</a></dd></>}
+        {!d.links.live && !d.links.repo && !d.confidential && <><dt>Access</dt><dd>Private codebase. Walkthrough on request.</dd></>}
+      </dl>
+      <div class="tb-foot"><div><b>TIER</b>{tierLabel(d.tier)}</div><div><b>FIGS</b>{figs.length + (m.hero ? 1 : 0) + (looks ? 1 : 0) + m.turntables.length}</div><div><b>SHEET</b>{no} of {work.length}</div></div>
+    </aside>
+  </div>
+
+  {isBF && (
+    <section class="sheet-section" aria-labelledby="walk">
+      <div class="sechead"><span class="label">Live figure</span><h2 id="walk">Walk a world</h2><a class="label" href={site.blockforge} style="color:var(--line)">blockforge.housamkak.com ↗</a></div>
+      <figure class="fig">
+        <div class="embed" id="bf-embed">
+          <button type="button" data-src="https://blockforge.housamkak.com/viewer/brick/?ui=0&mode=overview">
+            {m.gallery[0] && <img src={m.gallery[0].src} alt="" />}
+            <span>Load the world (about 1.4 MB)</span>
+          </button>
+        </div>
+        <div class="dim"><span>a baked world served by the BlockForge viewer</span></div>
+        <figcaption><b>{fig()}</b><span>A real world built by the engine, loaded only when you ask for it. Drag to look around.</span></figcaption>
+      </figure>
+    </section>
+  )}
+
+  {m.turntables.length > 0 && (
+    <section class="sheet-section" aria-labelledby="models">
+      <div class="sechead"><span class="label">Exports</span><h2 id="models">Models compiled by the engine</h2><span class="label">{m.turntables.length} turntables</span></div>
+      <div class="figs">
+        {m.turntables.map((t) => (
+          <figure class="fig">
+            <div class="frame"><video src={t.src} poster={t.poster} controls muted loop playsinline preload="none" aria-label={t.alt}></video></div>
+            <figcaption><b>{fig()}</b><span>{t.caption ?? t.alt}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {figs.length > 0 && (
+    <section class="sheet-section" aria-labelledby="figs">
+      <div class="sechead"><span class="label">Figures</span><h2 id="figs">{m.shots.length ? 'From the running software' : 'Stills'}</h2><span class="label">{figs.length} {figs.length === 1 ? 'figure' : 'figures'}</span></div>
+      <div class="figs">
+        {figs.map((p, i) => (
+          <figure class={`fig ${p.kind === 'mobile' ? 'phone' : ''} ${i === 0 && figs.length % 2 === 1 && p.kind !== 'mobile' ? 'wide' : ''}`}>
+            <div class="frame"><img src={p.src} alt={p.alt} loading="lazy" /></div>
+            <figcaption><b>{fig()}</b><span>{p.caption ?? p.alt}{p.tool && ` (${p.tool})`}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <nav class="pager" aria-label="More work">
+    {prev ? <a href={`/work/${prev.id}`}><span class="label">Previous sheet</span><h3>{prev.data.title}</h3></a> : <span />}
+    {next ? <a class="next" href={`/work/${next.id}`}><span class="label">Next sheet</span><h3>{next.data.title}</h3></a> : <span />}
+  </nav>
+  <script>
+    document.querySelector<HTMLButtonElement>('#bf-embed button')?.addEventListener('click', (e) => {
+      const b = e.currentTarget as HTMLButtonElement;
+      const f = document.createElement('iframe');
+      f.src = b.dataset.src!; f.title = 'BlockForge world viewer'; f.allow = 'fullscreen';
+      b.replaceWith(f);
+    });
+  </script>
 </Base>

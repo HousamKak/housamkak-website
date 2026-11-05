@@ -1,0 +1,6 @@
+[
+  {"src": "/media/electrical-lab/shots/01-robot-arm-3d.webp", "alt": "Lab Studio 3D view of a robot arm circuit: an Arduino, four potentiometers, a push button and a 4-DOF arm, with the logic analyser panel showing PWM channels", "caption": "The robot-arm circuit in Lab Studio's 3D view while the simulation runs.", "kind": "desktop"},
+  {"src": "/media/electrical-lab/shots/02-schematic-running.webp", "alt": "Lab Studio schematic of the robot arm circuit with highlighted live nets, the parts palette and the circuit properties panel, simulation running", "caption": "The same circuit as a schematic, simulating headlessly in the browser.", "kind": "desktop"},
+  {"src": "/media/electrical-lab/shots/03-breadboard-view.webp", "alt": "Lab Studio breadboard view with colored wires from the Arduino to potentiometers, a button, LED and the robot arm, plus logic traces on the right", "caption": "Breadboard view with the logic analyser tracing the servo PWM nets.", "kind": "desktop"},
+  {"src": "/media/electrical-lab/shots/04-studio-home.webp", "alt": "Lab Studio home with starter templates (blink, button and LED, pot to LED, 555 astable, voltage divider, LCD) and saved circuits", "caption": "Lab Studio home: starter circuits and the saved workspace.", "kind": "desktop"}
+]

@@ -3,24 +3,24 @@ import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { site } from '../data/site';
 const [cv] = await getCollection('cv');
-const rendered = cv ? await render(cv) : null;
-const Content = rendered?.Content;
+const Content = cv ? (await render(cv)).Content : null;
 ---
-<Base title="CV" nav="cv" description={`Curriculum vitae of ${site.name}: enterprise AI product and software delivery, independent systems, engineering and mathematics.`}>
-  <div class="wrap"><div class="inner">
-    <header class="cs-head">
-      <div class="kicker">Curriculum vitae{cv && ` · updated ${cv.data.updated.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}`}</div>
+<Base title="CV" nav="cv" sheet="Curriculum vitae" dwg="03" description={`Curriculum vitae of ${site.name}: enterprise AI product and software delivery, independent systems, engineering and mathematics.`}>
+  <header class="cs-head">
+    <div><p class="label">Curriculum vitae</p>{cv && <p class="label" style="margin-top:6px">Rev {cv.data.updated.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</p>}</div>
+    <div>
       <h1>{site.name}</h1>
       <p class="lede">{site.tagline}</p>
-      <p class="links"><a href={site.cvPdf}>Download PDF ↗</a></p>
-    </header>
-    <div class="prose cv" style="margin-bottom:72px">
-      {Content ? <Content /> : <p>The CV is being refreshed. The PDF link above has the current version.</p>}
+      <div class="cta"><a class="btn" href={site.cvPdf}>Download the PDF</a><a class="btn ghost" href="/work">See the work</a></div>
     </div>
-  </div></div>
+  </header>
+  <div class="case" style="grid-template-columns:180px minmax(0,1fr);gap:24px">
+    <span></span>
+    <div class="prose cv">{Content ? <Content /> : <p>The CV is being revised. The PDF has the current version.</p>}</div>
+  </div>
 </Base>
 <style is:global>
-  .cv h2 { border-top: 2px solid var(--ink); padding-top: 12px; }
-  .cv h3 { margin-bottom: .1em; }
-  .cv h3 + p em, .cv h3 + p { color: var(--muted); }
+  .cv h2 { border-top: var(--stroke-heavy) solid var(--ink); padding-top: 12px; margin-top: 1.6em; }
+  .cv h2:first-child { margin-top: 0; }
+  @media (max-width: 760px) { .case { grid-template-columns: 1fr !important; } }
 </style>

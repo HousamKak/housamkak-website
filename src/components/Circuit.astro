@@ -2,8 +2,8 @@
 // Static circuit map: every project is a node wired to the flagship it grew from, flagships wire to the hub.
 // Rendered at build time; no client JS needed.
 import type { Work } from '../lib/data';
-interface Props { work: Work[]; focus?: string }
-const { work, focus = 'h-system' } = Astro.props;
+interface Props { work: Work[]; focus?: string; label?: string }
+const { work, focus = 'h-system', label = 'FIG.' } = Astro.props;
 const cx = 500, cy = 350;
 const t1 = work.filter((w) => w.data.tier === 1), t2 = work.filter((w) => w.data.tier === 2), t3 = work.filter((w) => w.data.tier === 3);
 const pos: Record<string, { x: number; y: number }> = { __hub: { x: cx, y: cy } };
@@ -34,41 +34,37 @@ const nodes = work.map((w) => {
   return { w, label, wd, h, ...pos[w.id] };
 });
 ---
-<figure class="circuit">
-  <div class="board">
+<figure class="fig circuit">
+  <div class="frame board">
     <svg viewBox="0 0 1000 700" role="img" aria-label="Map of every project, wired to the flagship system it grew from">
       <g>
         {work.map((w) => <path d={path(pos[w.id], pos[parent[w.id]])} class={`wire ${hot.has(w.id) ? 'hot' : ''}`} />)}
-        {work.filter((w) => w.data.tier < 3).map((w, i) => <path d={path(pos[w.id], pos[parent[w.id]])} class="pulse" style={`animation-delay:${-(i % 7) * 0.45}s`} />)}
-      </g>
-      <g class="hub"><rect x={cx - 58} y={cy - 20} width="116" height="40" rx="4" /><text x={cx} y={cy + 6} text-anchor="middle">Housam</text></g>
+              </g>
+      <g class="hub"><rect x={cx - 58} y={cy - 20} width="116" height="40" /><text x={cx} y={cy + 6} text-anchor="middle">Housam</text></g>
       {nodes.map((n) => (
         <a href={`/work/${n.w.id}`} class={`node t${n.w.data.tier} ${n.w.id === focus ? 'sel' : ''}`} aria-label={n.w.data.title}>
-          <rect x={n.x - n.wd / 2} y={n.y - n.h / 2} width={n.wd} height={n.h} rx="3" />
+          <rect x={n.x - n.wd / 2} y={n.y - n.h / 2} width={n.wd} height={n.h} />
           <circle cx={n.x - n.wd / 2} cy={n.y} r={n.w.data.tier === 3 ? 2 : 3} class="port" />
           <text x={n.x} y={n.y + 4} text-anchor="middle">{n.label}</text>
         </a>
       ))}
     </svg>
   </div>
-  <figcaption>Every project as a node on a canvas, wired to the flagship it grew from. This is how H itself looks: tools and agents connected by wires. Click a node to open it.</figcaption>
+  <div class="dim"><span>every project · wired to the flagship it grew from</span></div>
+  <figcaption><b>{label}</b><span>The whole portfolio drawn the way H draws a canvas: nodes with ports, typed wires between them. Blue wires lead to and from H. Click a node to open its sheet.</span></figcaption>
 </figure>
 <style>
-  .circuit { margin: 32px 0; display: grid; gap: 8px; }
-  .board { overflow-x: auto; border-radius: 6px; border: 1px solid #223430;
-    background: radial-gradient(circle, #1E2F2B 1px, transparent 1.3px) 0 0 / 22px 22px, #14201D; }
+  .board { overflow-x: auto; background: var(--paper) !important; }
   svg { display: block; width: 100%; min-width: 760px; height: auto; }
-  .node rect { fill: #13201D; stroke: #2F4741; stroke-width: 1.2; }
-  .node.t1 rect { stroke: #47D3B6; stroke-width: 1.6; }
-  .node text { fill: #CFE0DA; font-family: var(--f-mono); font-size: 11px; }
-  .node.t1 text { font-size: 13px; fill: #F1FAF6; font-weight: 500; }
-  .node .port { fill: #47D3B6; }
-  .node:hover rect, .node:focus rect, .node.sel rect { fill: #1C3530; stroke: #47D3B6; }
-  .wire { fill: none; stroke: #2C4842; stroke-width: 1.4; }
-  .wire.hot { stroke: #47D3B6; stroke-width: 2; }
-  .pulse { fill: none; stroke: #47D3B6; stroke-width: 2; stroke-dasharray: 6 160; animation: flow 3.2s linear infinite; opacity: .75; }
-  @keyframes flow { to { stroke-dashoffset: -166; } }
-  .hub rect { fill: #47D3B6; } .hub text { fill: #062019; font-family: var(--f-display); font-weight: 800; font-size: 16px; }
-  figcaption { font-size: 13px; color: var(--muted); }
-  @media (prefers-reduced-motion: reduce) { .pulse { display: none; } }
+  .node rect { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+  .node.t1 rect { stroke-width: 1.8; }
+  .node text { fill: var(--ink); font-family: var(--font-body); font-size: 13px; }
+  .node.t1 text { font-weight: 700; font-size: 14.5px; }
+  .node.t3 text { fill: var(--muted); font-size: 12px; }
+  .node .port { fill: var(--point); stroke: #14171B; stroke-width: 1; }
+  .node:hover rect, .node:focus rect, .node.sel rect { stroke: var(--line); stroke-width: 2; }
+  .node:hover text, .node.sel text { fill: var(--line); }
+  .wire { fill: none; stroke: var(--rule); stroke-width: 1.2; }
+  .wire.hot { stroke: var(--line); stroke-width: 1.6; }
+  .hub rect { fill: var(--ink); } .hub text { fill: var(--paper); font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
 </style>
