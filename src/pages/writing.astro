@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { writing } from '../lib/writing';
+const items = await writing();
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+<Base title="Writing" nav="writing" description="Posts and papers by Housam Kak on agents, 3D engines, reverse engineering, engineering and business software.">
+  <div class="wrap"><div class="inner">
+    <header class="cs-head">
+      <div class="kicker">Writing · from <a href={site.blog}>blog.housamkak.com</a></div>
+      <h1>Writing</h1>
+      <p class="lede">Long-form posts and papers. They live on the blog, which has its own front page and archive.</p>
+    </header>
+    <div class="rows">
+      {items.map((p) => (
+        <a class="row" href={p.url}>
+          <span class="t">{p.kind}</span>
+          <h3>{p.title}</h3>
+          <p>{p.description}</p>
+          <span class="cat">{fmt(p.date)}</span>
+        </a>
+      ))}
+    </div>
+    <p style="margin-bottom:64px"><a href={site.blog} class="links" style="color:var(--teal);font-family:var(--f-mono)">Open the blog ↗</a></p>
+  </div></div>
+</Base>

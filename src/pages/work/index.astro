@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allWork, CAT, tierLabel, host } from '../../lib/data';
+
+const work = await allWork();
+const cats = Object.keys(CAT).filter((c) => work.some((w) => w.data.categories.includes(c)));
+const groups = [
+  { t: 1, title: 'Flagship systems', blurb: 'The five systems I would show first.' },
+  { t: 2, title: 'Case studies', blurb: 'Substantial projects, each with its own page.' },
+  { t: 3, title: 'Lab', blurb: 'Prototypes, experiments and small tools.' },
+];
+---
+<Base title="Work" nav="work" description="Every system, tool and experiment Housam Kak has built: enterprise AI, agent tools, 3D engines, business software, engineering and research.">
+  <div class="wrap"><div class="inner">
+    <header class="cs-head">
+      <div class="kicker">Index · {work.length} projects</div>
+      <h1>Work</h1>
+      <p class="lede">Filter by field. Flagship and case-study entries have full pages; lab entries are shorter notes.</p>
+    </header>
+    <div class="chips" id="chips" role="group" aria-label="Filter by field">
+      <button class="chip" type="button" data-c="all" aria-pressed="true">All</button>
+      {cats.map((c) => <button class="chip" type="button" data-c={c} aria-pressed="false">{CAT[c]}</button>)}
+    </div>
+    {groups.map((g) => (
+      <section aria-labelledby={`g${g.t}`} data-group style="margin-top:36px">
+        <div class="section-h"><h2 id={`g${g.t}`}>{g.title}</h2><span class="kicker">{g.blurb}</span></div>
+        <div class="rows">
+          {work.filter((w) => w.data.tier === g.t).map((w) => (
+            <a class="row" href={`/work/${w.id}`} data-cats={w.data.categories.join(' ')}>
+              <span class={`t ${w.data.tier === 1 ? 't1' : ''}`}>{tierLabel(w.data.tier)}</span>
+              <h3>{w.data.title}</h3>
+              <p>{w.data.hook}{w.data.links.live && <span class="muted"> · {host(w.data.links.live)}</span>}</p>
+              <span class="cat">{w.data.categories.slice(0, 2).map((c) => CAT[c] ?? c).join(' · ')}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div></div>
+  <script>
+    const chips = document.getElementById('chips')!;
+    chips.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip'); if (!b) return;
+      const c = b.dataset.c!;
+      chips.querySelectorAll('.chip').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      document.querySelectorAll<HTMLElement>('[data-cats]').forEach((r) => {
+        r.hidden = c !== 'all' && !r.dataset.cats!.split(' ').includes(c);
+      });
+      document.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
+        g.hidden = !g.querySelector('[data-cats]:not([hidden])');
+      });
+    });
+  </script>
+</Base>

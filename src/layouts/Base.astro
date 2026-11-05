@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props { title?: string; description?: string; og?: string | null; nav?: string; type?: 'website' | 'article'; }
+const { title, description = site.bio, og, nav = '', type = 'website' } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name}: ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(og ?? '/og/default.png', site.url).href;
+const links = [
+  { href: '/work', label: 'Work', key: 'work' },
+  { href: '/writing', label: 'Writing', key: 'writing' },
+  { href: '/cv', label: 'CV', key: 'cv' },
+  { href: '/3d', label: 'Explore in 3D', key: '3d' },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content={type}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:site_name" content={site.name}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#13201C">
+  <link rel="alternate" type="application/rss+xml" title="Housam Kak, writing" href={`${site.blog}/rss.xml`}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: site.url,
+    jobTitle: 'Product lead and software engineer', address: { '@type': 'PostalAddress', addressLocality: site.location },
+    sameAs: [site.github, site.linkedin, site.blog, site.blockforge],
+  })} />
+  <slot name="head" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-h wrap">
+    <div class="inner">
+      <a class="brand" href="/">Housam <span>Kak</span></a>
+      <nav class="nav" aria-label="Main">
+        {links.map((l) => <a href={l.href} aria-current={nav === l.key ? 'page' : undefined}>{l.label}</a>)}
+        <a href={site.blog}>Blog ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main"><slot /></main>
+  <footer class="site-f wrap">
+    <div class="inner">
+      <p><strong>{site.name}</strong>. {site.bio}</p>
+      <ul>
+        <li><span>{site.email}</span> <button class="copy-btn" type="button" data-copy={site.email}>copy</button></li>
+        <li><a href={site.github}>GitHub</a></li>
+        <li><a href={site.linkedin}>LinkedIn</a></li>
+        <li><a href={site.blog}>Blog</a></li>
+        <li><a href={site.blockforge}>BlockForge</a></li>
+        <li><a href={site.cvPdf}>CV (PDF)</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) => {
+      b.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = 'copied'; }
+        catch { b.textContent = 'select the address'; }
+        setTimeout(() => (b.textContent = 'copy'), 1600);
+      });
+    });
+  </script>
+</body>
+</html>

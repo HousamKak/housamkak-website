@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import Circuit from '../../components/Circuit.astro';
+import { render } from 'astro:content';
+import { allWork, media, CAT, tierLabel, host } from '../../lib/data';
+
+export async function getStaticPaths() {
+  const work = await allWork();
+  return work.map((w, i) => ({ params: { slug: w.id }, props: { idx: i } }));
+}
+const work = await allWork();
+const { idx } = Astro.props as { idx: number };
+const entry = work[idx];
+const d = entry.data;
+const m = media(entry.id);
+const { Content } = await render(entry);
+const prev = work[idx - 1], next = work[idx + 1];
+---
+<Base title={d.title} description={d.summary} og={m.og ?? m.hero} nav="work" type="article">
+  <div class="wrap"><div class="inner">
+    <header class="cs-head">
+      <div class="kicker"><a href="/work">Work</a> · {tierLabel(d.tier)} · {d.categories.map((c) => CAT[c] ?? c).join(' · ')}</div>
+      <h1>{d.title}</h1>
+      <p class="lede">{d.hook}</p>
+    </header>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>{d.role}</dd></div>
+      <div><dt>Period</dt><dd>{d.period}</dd></div>
+      <div><dt>Status</dt><dd>{d.status}</dd></div>
+      <div><dt>Links</dt><dd class="links">
+        {d.links.live && <a href={d.links.live}>{host(d.links.live)} ↗</a>}
+        {d.links.live && d.links.repo && <br />}
+        {d.links.repo && <a href={d.links.repo}>source ↗</a>}
+        {!d.links.live && !d.links.repo && <span class="muted">Private; demo on request</span>}
+      </dd></div>
+    </dl>
+
+    {m.video ? (
+      <div class="cs-hero"><video src={m.video.src} poster={m.video.poster ?? m.hero ?? undefined} controls muted playsinline preload="none"></video></div>
+    ) : m.hero ? (
+      <div class="cs-hero"><img src={m.hero} alt={m.heroAlt ?? `${d.title}: ${d.hook}`} loading="eager" /></div>
+    ) : null}
+
+    <div class="cs-body">
+      <article>
+        {d.confidential && <p class="note">Client work. This is a public summary: it leaves out the client's name, internal systems and data.</p>}
+        {entry.id === 'h-system' && <Circuit work={work} focus="h-system" />}
+        <div class="prose"><Content /></div>
+        {m.turntables.length > 0 && (
+          <div class="gallery">
+            {m.turntables.map((t) => <figure><video src={t.src} poster={t.poster} controls muted loop playsinline preload="none" aria-label={t.alt}></video>{t.caption && <figcaption>{t.caption}</figcaption>}</figure>)}
+          </div>
+        )}
+        {m.gallery.length > 0 && (
+          <div class="gallery">
+            {m.gallery.map((g) => <figure><img src={g.src} alt={g.alt} loading="lazy" />{g.caption && <figcaption>{g.caption}</figcaption>}</figure>)}
+          </div>
+        )}
+      </article>
+      <aside class="cs-side">
+        {d.highlights.length > 0 && <div><h2>Highlights</h2><ul>{d.highlights.map((h) => <li>{h}</li>)}</ul></div>}
+        {d.stack.length > 0 && <div><h2>Stack</h2><div class="tags">{d.stack.map((s) => <span>{s}</span>)}</div></div>}
+        {d.credits.length > 0 && <div><h2>Credits</h2><ul>{d.credits.map((c) => <li>{c}</li>)}</ul></div>}
+        {d.links.writing && <div><h2>Writing</h2><a class="links" href={d.links.writing}>Read the story ↗</a></div>}
+        {entry.id === 'blockforge' && <div><h2>3D</h2><a class="links" href="/3d">Walk the project city →</a></div>}
+      </aside>
+    </div>
+
+    <nav class="pager" aria-label="More work">
+      {prev ? <a href={`/work/${prev.id}`}><span class="kicker">Previous</span><b>{prev.data.title}</b></a> : <span />}
+      {next ? <a href={`/work/${next.id}`} style="text-align:right"><span class="kicker">Next</span><b>{next.data.title}</b></a> : <span />}
+    </nav>
+  </div></div>
+</Base>

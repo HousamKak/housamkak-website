@@ -1,0 +1,1003 @@
+[
+  {
+    "slug": "blockforge",
+    "name": "BlockForge",
+    "tier": 1,
+    "categories": ["graphics-3d", "ai-agents", "media-creative", "games"],
+    "facets": { "role": "solo", "status": "beta", "platforms": ["web", "desktop-native", "cli-mcp"] },
+    "scores": { "impressiveness": 5, "uniqueness": 5, "readiness": 5, "story": 5 },
+    "lastActivity": "2026-11-05",
+    "sourceFolders": ["D:/dev/block game", "D:/dev/block game/website"],
+    "repoVisibility": "private (HousamKak/blockforge)",
+    "hook": "A programmable voxel world engine where a script becomes a world, and a world becomes a film.",
+    "problem": "World-building and short-form 3D media usually mean hand-placing content in heavy editors, with no clean way for code, agents or version control to drive the result.",
+    "built": "Housam built BlockForge end to end (934 of 934 sampled commits are his, March to November 2026): a browser isometric/3D builder, a native C++17/SDL2 client, schema-based world and object descriptions, a shared Luau mod host compiled for native and WASM, and CLI/MCP interfaces that let an agent build, inspect and film scenes. He also built the public landing site, rendered entirely from the engine.",
+    "highlights": [
+      "Browser and native C++17/SDL2 clients sharing world formats and a Luau mod host (native and WASM), with build settings aimed at cross-client floating-point determinism",
+      "Object compiler derives physics properties (mass, centre of mass, inertia, colliders) from compiled objects",
+      "World versioning with diff and merge, plus a world-history film generated from the version graph",
+      "CLI bridge and MCP server with query and snapshot observation, so agents can see what they build",
+      "Timeline and film tooling used to render several short films (One World, Baalbek, Atom to Bomb, Claymation and others)",
+      "Status notes reference roughly 1,040 passing tests (self-reported, not rerun)"
+    ],
+    "stack": ["JavaScript", "Node.js", "Three.js", "WebGPU/WebGL", "C++17", "SDL2", "CMake", "Luau", "WASM", "JSON Schema", "MCP", "Cloudflare Workers"],
+    "status": "Active development; public coming-soon site with notify form; engine not publicly released.",
+    "links": { "live": "https://blockforge.housamkak.com", "repo": null },
+    "assets": [
+      "D:/dev/block game/website/assets/films/*.mp4 and *.webp (one-world, baalbek, atom-to-bomb, claymation, lamplighter, graph-bloom, pixel-tide, sdf-garden, new-features-showcase, camera-motion-demo-glass)",
+      "D:/dev/block game/website/assets/hero (90-frame scroll-scrubbed hero, 16:9 and 9:16)",
+      "D:/dev/block game/website/assets/loops, assets/history, assets/img",
+      "D:/dev/block game/docs/media/experiments (381 images, e.g. 2026-10-15-all-styles-sheet.png, camera-motion-demo-sheet.png)",
+      "D:/dev/block game/docs/media/retro, styles, textures, visuals",
+      "D:/dev/block game/Projects/Fikra opening/output-v4-4k/fikra-M3B1-4k.mp4 (235 MB, 4K film render)"
+    ],
+    "missingAssets": [
+      "60 to 90 second screen recording: type a world script, watch it compile in the browser builder, then switch to the native client",
+      "Screen capture of an agent (Claude Code) driving the MCP interface: build, snapshot, adjust",
+      "Side-by-side still: same world in the browser client and native C++ client",
+      "Diagram: world source to compiler to clients to film timeline",
+      "Short clip of the world diff/merge view",
+      "Clean 1200x630 OG card and a square thumbnail for the /projects grid"
+    ],
+    "openQuestions": [
+      "Is there a target public release date or waitlist size to mention?",
+      "Which films can be shown publicly (Fikra opening and Baalbek/Om Kolthoum projects: are they client or personal work, and do they use licensed music)?",
+      "Which features have native/web parity versus native-only?",
+      "Will the source or a demo build ever be public?",
+      "Imported character models (fox, robot, seed-san): what are their licences?"
+    ],
+    "confidentiality": "Low for the engine. Check licences for imported assets and any music in the films; confirm Fikra and Baalbek projects are not client-confidential."
+  },
+  {
+    "slug": "h-system",
+    "name": "H",
+    "tier": 1,
+    "categories": ["ai-agents", "dev-tools"],
+    "facets": { "role": "solo", "status": "alpha", "platforms": ["web", "desktop", "mobile", "cli-mcp"] },
+    "scores": { "impressiveness": 5, "uniqueness": 5, "readiness": 3, "story": 5 },
+    "lastActivity": "2026-09-26",
+    "sourceFolders": ["D:/dev/H"],
+    "repoVisibility": "private (HousamKak/H); companion public repo HousamKak/woodr-docs",
+    "hook": "A canvas operating environment where AI agents, terminals and live applets are wired together like a circuit.",
+    "problem": "Running many AI coding agents across many projects turns into a mess of terminals, lost context and guesswork about which agent is done or stuck.",
+    "built": "Housam designed and built H (460 sampled commits, all his, from April 2026): an event-driven orchestration core for projects, agents, memory, task graphs, sessions, terminals, costs and MCP tools; a canvas where generated applets, processes, chats and data are connected by wires; a transcript-based turn tracker; knowledge, vault, supervisor, remote-controller and voice packages; and several front ends (React/Vite web, Tauri desktop, Telegram, handset). Colony, an RTS-style interface, adapts the MIT-licensed Bot Crossing project with credit.",
+    "highlights": [
+      "Event-sourced orchestration core on SQLite coordinating agents, sessions, terminals, memory and costs",
+      "Canvas of live applets connected by typed wires; agents can read and patch applet state and hot-reload applet code",
+      "Turn tracker that infers completion and attention from structured transcripts instead of treating silence as done",
+      "Woodr, a relational drawing language behind the Woopy applet, with public reference docs",
+      "Colony: an RTS-inspired interface mapped onto real backend actions (credited Bot Crossing adaptation)",
+      "Multiple operator surfaces: web, Tauri desktop, Telegram and a native handset controller"
+    ],
+    "stack": ["TypeScript", "Node.js", "React", "Vite", "SQLite", "Event sourcing", "Tauri", "MCP", "Three.js", "C#", "Telegram Bot API"],
+    "status": "Daily-use personal system; supervised alpha. External adoption not measured.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/H/data/tmp/woodr-showcase/woodr-showcase-final.mp4 (4.7 MB) and chapter clips",
+      "D:/dev/H/data/tmp/orbit-demo.mp4, woopy-sine-screen.mp4",
+      "D:/dev/H/data/woopy-gallery (83 images)",
+      "D:/dev/H/h-suite (logo set: h.svg, h-mark.svg, PNG sizes, og-card.png)",
+      "D:/dev/H/docs/colony-overview.md and agent-architecture.md (source material for diagrams)"
+    ],
+    "missingAssets": [
+      "Hero video (60 to 90 s): open the canvas, drag a wire from a terminal to an applet, an agent updates the applet live",
+      "Screenshot of a busy real canvas with several agents and applets (scrub project names and paths first)",
+      "Colony interface screenshot and a 20 s clip",
+      "Architecture diagram: orchestrator, event store, packages, front ends",
+      "Clip of attention signalling: an agent finishing or needing input and the canvas reacting",
+      "Mobile/handset controller photo or screen recording"
+    ],
+    "openQuestions": [
+      "Is H meant to become a product, or stay a personal system shown as a case study?",
+      "How many projects and agents does it coordinate on a typical day?",
+      "Any measured time saved or reliability numbers?",
+      "Which front ends are mature enough to show (desktop, web, Telegram, handset)?",
+      "Does Colony use any EA Generals assets or names (docs include spec-colony-generals.md)? If so, exclude from public material."
+    ],
+    "confidentiality": "Medium. Screenshots will show private project names, paths and possibly client repos; capture from a clean demo workspace. Credit Bot Crossing in Colony material."
+  },
+  {
+    "slug": "pos-store-management",
+    "name": "Store POS and management ecosystem",
+    "tier": 1,
+    "categories": ["business-software", "infrastructure"],
+    "facets": { "role": "lead-developer", "status": "in-use (scale unconfirmed)", "platforms": ["web", "desktop"] },
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 3, "story": 5 },
+    "lastActivity": "2026-10-28",
+    "sourceFolders": ["D:/dev/Complete Work/store-management-local", "D:/dev/Complete Work/store-platform", "D:/dev/Complete Work/product-discovery", "D:/dev/Complete Work/product-image-regen", "D:/dev/Complete Work/Store Management", "D:/dev/Complete Work/HSM-Store-Website-clone"],
+    "repoVisibility": "private (HousamKak/store-mngmt, HousamKak/Store-Management-GS, HSM-brothers/store-platform, HSM-brothers/product-discovery)",
+    "hook": "A point-of-sale system that keeps a Lebanese store selling when the internet does not, in dollars and lira.",
+    "problem": "A small retail store needs fast checkout, accurate stock and dual-currency (USD/LBP) books, with unreliable connectivity, and the owners still want to see the business remotely.",
+    "built": "Housam is the main author (153 of 184 sampled commits in the main POS; Mahdi Kak contributed 31). He moved the store from an earlier Google Sheets/Apps Script system to an offline-first Node/Express/SQLite POS with transactional checkout, FIFO lot inventory, purchasing, returns, expenses and dual-currency reporting, then added outbox replication to Turso, R2 image copies and a read-only remote viewer. Around it he built a product-discovery tool (photo capture, agent-proposed metadata, human confirmation) and started a central Postgres/PostGIS catalog and fleet platform.",
+    "highlights": [
+      "Local SQLite is the source of truth; checkout works offline and replicates later through a trigger/outbox path to Turso",
+      "Checkout runs in one database transaction with replay protection bound to user and request hash, server-side pricing and role-restricted at-cost sales",
+      "FIFO lot allocation and stock valuation across USD/LBP workflows",
+      "Financial-correction work after an October 2026 self-audit: dated reversals, transaction-coupled audit records, tests against disposable databases",
+      "Product discovery: photograph a product, an agent proposes metadata, a person confirms, the POS API registers it",
+      "Evolution story: Google Sheets/Apps Script edition to local-first POS to multi-store platform"
+    ],
+    "stack": ["JavaScript", "Node.js", "Express", "SQLite", "Turso/libSQL", "Cloudflare R2", "HTML/CSS", "PostgreSQL", "PostGIS", "Tauri", "Google Apps Script"],
+    "status": "Used in a family store per Housam (store count and volume unconfirmed). Central platform is early (2 commits).",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/Complete Work/store-management-local/audit/synthetic-preview/cashier-checkout.png (synthetic data)",
+      "D:/dev/Complete Work/store-management-local/audit/synthetic-preview/viewer-reports.png and viewer-reports-arabic.png",
+      "D:/dev/Complete Work/store-management-local/ARCHITECTURE.md (source for a replication diagram)"
+    ],
+    "missingAssets": [
+      "Checkout screen recording with a barcode scan, cart, USD/LBP payment and receipt, using a demo database only",
+      "Offline demo: pull the network, complete a sale, reconnect, show the replicated record in the remote viewer",
+      "Inventory/FIFO lot screen and a report dashboard (demo data)",
+      "Product-discovery clip: photo in, proposed metadata, confirm",
+      "Before/after: the old Google Sheets edition next to the new POS",
+      "Architecture diagram: SQLite, outbox, Turso, R2, remote viewer",
+      "Optional real photo of the POS at the counter (no customer faces, no prices that matter to the business)"
+    ],
+    "openQuestions": [
+      "Which store(s) use it, since when, and can the store be named?",
+      "Approximate products, receipts or transactions handled (only if you are comfortable sharing)?",
+      "What exactly did Mahdi Kak build, and how should he be credited?",
+      "Has the offline mode been exercised during real outages?",
+      "Is the central platform a real plan for other stores or an experiment?"
+    ],
+    "confidentiality": "High for data, medium for code. Never show real sales, customers, suppliers or prices; use the synthetic-preview database for every capture. Repos stay private."
+  },
+  {
+    "slug": "anythyng",
+    "name": "AnyThyng",
+    "tier": 1,
+    "categories": ["ai-agents", "mobile", "infrastructure", "consumer-apps"],
+    "facets": { "role": "solo", "status": "beta", "platforms": ["mobile", "web", "cloud"] },
+    "scores": { "impressiveness": 5, "uniqueness": 4, "readiness": 4, "story": 4 },
+    "lastActivity": "2026-08-24",
+    "sourceFolders": ["D:/dev/anythyng-server", "D:/dev/anythyng-mobile", "D:/dev/anythyng-infra", "D:/dev/anythyng-web", "D:/dev/Anything app"],
+    "repoVisibility": "private (Houya-Projects/AnyThyng-server, -mobile, -infra, -web; HousamKak/anythyng archive)",
+    "hook": "Say a sentence, get a working app on your phone.",
+    "problem": "Most people who want a small custom app (a shop counter, a clinic tracker, a game for a kid) cannot build one, and no-code tools still demand that they think like developers.",
+    "built": "Housam built all four repositories in August 2026 (all sampled commits are his): a Node/TypeScript server around the Claude Agent SDK that turns a sentence into an app, versions every app, runs app server logic in a sandbox and serves it; a Kotlin/Compose Android shell with a WebView runtime and native bridge; OpenTofu AWS infrastructure with OIDC release pipelines, alarms and WAF; and the marketing site.",
+    "highlights": [
+      "Agent-driven app generation with full version history per app",
+      "Sandboxed server-side logic for generated apps",
+      "Device pairing with HMAC device tokens and owner-only code minting (guarding the bootstrap path on shared Wi-Fi)",
+      "Shared rooms: the phone and a published web page run on the same engine",
+      "OpenTofu AWS infrastructure with OIDC-based releases, database, alarms and WAF",
+      "Server README reports 115 tests (self-reported, not rerun)"
+    ],
+    "stack": ["TypeScript", "Node.js", "Claude Agent SDK", "Kotlin", "Jetpack Compose", "Android WebView", "OpenTofu", "AWS", "GitHub Actions OIDC", "Fly.io (earlier)"],
+    "status": "Beta; marketing site references anythyng.app. Live availability and user count unknown.",
+    "links": { "live": "https://anythyng.app", "repo": null },
+    "assets": [
+      "D:/dev/anythyng-web/img (product screenshots: home, shop, clinic, radar, motor, blade, blockcraft, brickfall, mario, plus og-card.jpg)",
+      "D:/dev/anythyng-server/public/img (same set plus og-card.jpg)"
+    ],
+    "missingAssets": [
+      "Phone screen recording (portrait, 30 to 45 s): type a request, app appears, use it, edit it with a follow-up sentence",
+      "Version history screen showing an app evolving",
+      "Clip of a shared room working on phone and web together",
+      "Architecture diagram: phone shell, server, sandbox, AWS",
+      "Device frame mockups of 3 generated apps for the case-study header"
+    ],
+    "openQuestions": [
+      "Is anythyng.app live and open to sign-ups, or invite-only?",
+      "What is Houya-Projects (company, studio, partnership), and is AnyThyng owned by it?",
+      "Any external testers or users so far?",
+      "The 'mario' screenshot: does it show Nintendo IP? Replace it for public use.",
+      "Play Store status?"
+    ],
+    "confidentiality": "Medium. Product belongs to the Houya-Projects org; confirm ownership and public wording. Swap any screenshot that shows third-party game IP."
+  },
+  {
+    "slug": "uipen",
+    "name": "UIpen",
+    "tier": 1,
+    "categories": ["ai-agents", "dev-tools"],
+    "facets": { "role": "solo", "status": "launch-ready (sales unknown)", "platforms": ["web", "cli-mcp"] },
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 4, "story": 4 },
+    "lastActivity": "2026-08-23",
+    "sourceFolders": ["D:/dev/UIpen", "D:/dev/uipen-website"],
+    "repoVisibility": "UIpen private; uipen-website public",
+    "hook": "Point at your app, and Claude fixes the right line of code.",
+    "problem": "Describing a UI bug to a coding agent in words or pixel coordinates is slow and the agent often edits the wrong component.",
+    "built": "Housam built UIpen solo (72 commits, April to August 2026): a dev-mode overlay for React/Next apps where you drop pins, regions and arrows on the running page. Each annotation carries the DOM selector, source file, line and React component name, and flows into a Claude Code session through Claude Code Channels/MCP via a Bun server, so the agent edits the right file and the page hot-reloads. He also built the marketing site at uipen.dev, installers, licensing/activation (with an AWS ECR image built on GitHub Actions) and release docs.",
+    "highlights": [
+      "Source-aware annotations: selector, file, line and component name attached to every pin",
+      "Built on Claude Code Channels (research preview) with a WebSocket resolve loop back to the overlay",
+      "Batching of annotations so one agent turn handles several notes",
+      "Productised: installers, licensing and activation service, launch and monetisation plans",
+      "Marketing site with the real toolbar in the hero"
+    ],
+    "stack": ["TypeScript", "Bun", "React", "Next.js", "MCP", "Claude Code Channels", "WebSocket", "SQLite", "AWS ECR", "GitHub Actions"],
+    "status": "Marketing site configured for uipen.dev; product launch and sales status unknown.",
+    "links": { "live": "https://uipen.dev", "repo": "https://github.com/HousamKak/uipen-website" },
+    "assets": [
+      "D:/dev/UIpen/brand/png (8 brand images)",
+      "D:/dev/uipen-website (live hero uses the real toolbar)"
+    ],
+    "missingAssets": [
+      "The key demo (30 to 45 s): pin a misaligned button, Claude Code edits the component, page hot-reloads with the fix; split screen browser plus terminal",
+      "Still of an annotation payload (selector, file, line, component) as the agent receives it",
+      "Region and arrow annotation close-ups",
+      "Flow diagram: browser overlay, Bun server, MCP/Channels, Claude Code, HMR"
+    ],
+    "openQuestions": [
+      "Is UIpen on sale, free, or waiting for Channels to leave research preview?",
+      "Any users or paying customers yet?",
+      "Is the brand/name cleared for use?",
+      "Will the core ever be open source?"
+    ],
+    "confidentiality": "Low. Record demos against a sample app, not a client or work repo."
+  },
+  {
+    "slug": "video-studio",
+    "name": "Studio (script-to-film pipeline)",
+    "tier": 2,
+    "categories": ["media-creative", "ai-agents", "dev-tools"],
+    "facets": { "role": "solo", "status": "in-use", "platforms": ["cli", "desktop"] },
+    "scores": { "impressiveness": 5, "uniqueness": 5, "readiness": 4, "story": 4 },
+    "lastActivity": "2026-10-13",
+    "sourceFolders": ["D:/dev/Video Editing"],
+    "repoVisibility": "no GitHub remote",
+    "hook": "Write a film as a script; get narration, animation, sound and a DaVinci Resolve timeline.",
+    "problem": "Explainer films take days of manual narration, animation and timeline assembly, and every revision means redoing the edit.",
+    "built": "Housam built Studio, a Python package and script language that compiles a film script into narration, Manim animation, pictures, sound and a Resolve timeline through a bridge, with an agent production board so several specialist agents share one job list. It now renders BlockForge scenes and blocky presenters (including a skin of Housam) directly from script lines.",
+    "highlights": [
+      "A film script language compiled to narration, visuals, sound and a Resolve timeline",
+      "Docs generated from code; the test suite fails when docs drift or an example script stops compiling",
+      "Agent production board derived from the script so agents share ids and dependencies",
+      "BlockForge integration: voxel sets, in-world screens and camera moves locked to words",
+      "Completed films exist (for example fractals_en and war)"
+    ],
+    "stack": ["Python", "Manim", "FFmpeg", "DaVinci Resolve scripting", "ElevenLabs", "BlockForge", "Claude agents"],
+    "status": "Working personal pipeline; several finished exports.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/Video Editing/projects/fractals_en/export/deliver/*.mp4 (finished fractals film, 282 MB)",
+      "D:/dev/Video Editing/projects/war/export/deliver/war.mp4 (300 MB)",
+      "D:/dev/Video Editing/projects/fractals_en/edit/preview.mp4"
+    ],
+    "missingAssets": [
+      "Split-screen clip: script text on the left, the compiled film on the right, synced",
+      "Screenshot of the generated Resolve timeline",
+      "Compressed 30 s excerpts of the fractals and war films for web",
+      "Pipeline diagram: script, compiler, narration/visuals/sound, Resolve"
+    ],
+    "openQuestions": [
+      "Are the films published anywhere (YouTube channel)?",
+      "Is the war film safe to share publicly (subject matter, footage sources)?",
+      "Should Studio be presented alone or as part of the BlockForge story?"
+    ],
+    "confidentiality": "Medium. Exclude projects/zh_trailer (EA game footage) and the Cunningham veterinary textbook project (copyrighted figures) from public material."
+  },
+  {
+    "slug": "app-monitor",
+    "name": "App Monitor",
+    "tier": 2,
+    "categories": ["infrastructure", "dev-tools"],
+    "facets": { "role": "solo", "status": "in-use (private)", "platforms": ["web", "cloud", "sdk"] },
+    "scores": { "impressiveness": 4, "uniqueness": 3, "readiness": 5, "story": 4 },
+    "lastActivity": "2026-10-11",
+    "sourceFolders": ["D:/dev/app-monitor"],
+    "repoVisibility": "private",
+    "hook": "Self-hosted telemetry, crash reports and symbolication for every app one developer ships, on Cloudflare.",
+    "problem": "An independent developer shipping many apps cannot justify a commercial monitoring plan for each, but still needs crashes, versions and usage in one place.",
+    "built": "Housam built App Monitor solo in October 2026 (35 commits): an ingest Worker with validation, rate limits, quotas and a queue; a dashboard Worker with an admin API, cron rollups, retention and alerts; D1 storage; SDKs for browser/Workers JS, Android (Java with NDK signal handler), iOS (Swift with a C crash writer) and Python; native symbolication jobs; and an MCP server over the admin API.",
+    "highlights": [
+      "Two Cloudflare Workers (ingest and dashboard) sharing validation, fingerprinting and version-compare modules",
+      "SDKs on four platforms, including native crash capture on Android and iOS",
+      "Source map and native symbol upload with a symbolication job in CI",
+      "Alert rules, funnels, retention and release adoption views",
+      "MCP server so an agent can query apps, issues and releases",
+      "Responsive dashboard captured at 1280 and 390 widths"
+    ],
+    "stack": ["TypeScript", "Cloudflare Workers", "D1", "R2", "Queues", "Cloudflare Access", "Java/NDK", "Swift", "C", "Python", "MCP", "GitHub Actions"],
+    "status": "In use for Housam's own apps behind Cloudflare Access.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/app-monitor/dashboard-shots (32 PNGs: apps, events, game, install, installs, issue and more, each at 1280 and 390 px)"
+    ],
+    "missingAssets": [
+      "Re-capture dashboard shots using the seed demo apps (npm run seed) so no real app names, device ids or revenue show",
+      "Short clip: crash thrown in a sample app, appears symbolicated on the dashboard",
+      "Architecture diagram: SDKs, ingest Worker, queue, D1/R2, dashboard Worker, MCP"
+    ],
+    "openQuestions": [
+      "Which apps report into it today (can they be named)?",
+      "The dashboard tracks licence sales: for which product, and can that be shown?",
+      "Any plan to offer it to other developers?"
+    ],
+    "confidentiality": "Medium. Existing shots may show real app names, installs and licence revenue; use seeded demo data. monitor.housamkak.com is behind Access, so do not link it."
+  },
+  {
+    "slug": "budgetability",
+    "name": "Budgetability",
+    "tier": 2,
+    "categories": ["consumer-apps", "business-software", "mobile", "ai-agents"],
+    "facets": { "role": "solo", "status": "live", "platforms": ["web", "mobile", "cli-mcp"] },
+    "scores": { "impressiveness": 3, "uniqueness": 3, "readiness": 5, "story": 3 },
+    "lastActivity": "2026-11-01",
+    "sourceFolders": ["D:/dev/Complete Work/budgetability", "D:/dev/Complete Work/budgetability-website"],
+    "repoVisibility": "budgetability public; budgetability-website and budgetability-mobile private",
+    "hook": "Personal finance built for people who live in more than one currency.",
+    "problem": "Households in dual-currency economies like Lebanon juggle USD, LBP and other wallets, and mainstream budget apps assume one currency.",
+    "built": "Housam's longest-running personal product (274 commits from September 2025, his apart from CI bot commits): a React/Vite web app on Supabase with multi-currency wallets and accounts, budgets, expenses, analytics and forecasting, a mobile client, a marketing site and MCP tooling against the live backend.",
+    "highlights": [
+      "Multi-currency wallets with automatic in-account transfers",
+      "Forecasting and analytics dashboards",
+      "Web plus mobile client (Expo assets present) on one Supabase backend",
+      "MCP tooling so an agent can query and manage budgets",
+      "CI/CD to GitHub Pages with a custom domain"
+    ],
+    "stack": ["React", "Vite", "Supabase", "PostgreSQL", "React Native/Expo", "MCP", "GitHub Actions", "GitHub Pages"],
+    "status": "Deployed (www.budgetability.app per CNAME); user numbers unknown.",
+    "links": { "live": "https://www.budgetability.app", "repo": "https://github.com/HousamKak/budgetability" },
+    "assets": [
+      "D:/dev/Complete Work/budgetability-website/public/screenshots (analytics-dashboard.png, budgetability-home-platform.png, forecast.png, wallet-accounts.png)",
+      "D:/dev/Complete Work/budgetability/public (logo.svg, logo-mark.svg, logo-horizontal.svg, og-image.png)",
+      "D:/dev/Complete Work/budgetability/budgetability-mobile/assets/brand"
+    ],
+    "missingAssets": [
+      "Mobile screenshots in device frames",
+      "20 s clip: add an expense in LBP, see USD totals and forecast update",
+      "Confirm the four existing screenshots use demo data"
+    ],
+    "openQuestions": [
+      "Is it open to the public, and how many users?",
+      "The public repo README is a generic template: update it before linking?",
+      "Is the mobile app published on a store?"
+    ],
+    "confidentiality": "Low, provided screenshots use demo accounts."
+  },
+  {
+    "slug": "partforge",
+    "name": "Partforge",
+    "tier": 2,
+    "categories": ["engineering-hardware", "ai-agents", "dev-tools"],
+    "facets": { "role": "solo (unconfirmed)", "status": "working toolset", "platforms": ["cli-mcp", "desktop"] },
+    "scores": { "impressiveness": 5, "uniqueness": 5, "readiness": 2, "story": 4 },
+    "lastActivity": "unknown (no git history)",
+    "sourceFolders": ["D:/dev/3d printing"],
+    "repoVisibility": "no GitHub remote",
+    "hook": "One toolchain that lets an agent design, check, slice and print a real mechanical part.",
+    "problem": "Taking a mechanical part from idea to print means hopping between CAD, slicer and printer software, none of which an agent can drive or reason about.",
+    "built": "Partforge is a single core driven from a terminal (pf) or by an agent (MCP, 54 tools per README) across OpenSCAD parametric authoring, headless Bambu Studio slicing (after fixing a CLI crash), Bambu Cloud/LAN printer status, and SolidWorks 2018 over COM for named-dimension control and export. It adds mesh metrology, design-for-additive checks, ISO 286 limits and fits, ISO metric fastener data and a .scad library with real helical threads.",
+    "highlights": [
+      "pf build renders, measures, judges printability and slices in one pass with grams and print time",
+      "SolidWorks control over COM verified end to end on a real part (per README)",
+      "Engineering checks, not just rendering: ISO 286 fits, fastener tables, overhang verdicts",
+      "Office/SolidWorks add-in task pane (addin/)",
+      "Ships an .mcp.json so Claude Code registers the tools automatically"
+    ],
+    "stack": ["Node.js", "OpenSCAD", "Bambu Studio CLI", "SolidWorks COM API", "MCP", "Python"],
+    "status": "Working locally on Housam's machine; not packaged for others.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/3d printing/addin/docs/taskpane.png"
+    ],
+    "missingAssets": [
+      "Photo of a printed part next to its render and the pf build terminal output",
+      "Screen recording: change hub_wall, rebuild, see the new slice estimate",
+      "Six-view render sheet of one part",
+      "SolidWorks screenshot driven by the tool"
+    ],
+    "openQuestions": [
+      "When was it built? There is no git history; should it be put under version control?",
+      "Which real parts have been printed with it (the dispenser project)?",
+      "Sole author?"
+    ],
+    "confidentiality": "Low. SolidWorks is a licensed install; do not publish its binaries or files."
+  },
+  {
+    "slug": "electrical-lab",
+    "name": "Electrical Lab",
+    "tier": 2,
+    "categories": ["engineering-hardware", "ai-agents", "research-simulation"],
+    "facets": { "role": "solo", "status": "prototype", "platforms": ["web", "cli-mcp"] },
+    "scores": { "impressiveness": 5, "uniqueness": 4, "readiness": 2, "story": 4 },
+    "lastActivity": "2026-09-26",
+    "sourceFolders": ["D:/dev/Electrical Design"],
+    "repoVisibility": "private",
+    "hook": "An MCP hardware lab: an agent designs a circuit once and runs it on whichever simulator answers the question.",
+    "problem": "Electronics work is spread across simulators, firmware tools and PCB software that do not share a model, so an agent (or a person) has to rebuild the circuit for each question.",
+    "built": "Housam built a backend-neutral circuit model (parts, nets, firmware) behind an MCP server, with drivers for headless Arduino emulation (avr8js), the PCBX visual workbench via Playwright, ngspice analog simulation, KiCad export and Wokwi export, a project-local Arduino CLI toolchain, about 2,100 Fritzing parts, and Lab Studio, a web editor with live sync and an in-browser simulator.",
+    "highlights": [
+      "One circuit model, five backends chosen by the question (logic, visual, analog accuracy, manufacturing, sharing)",
+      "Firmware compiled from Arduino sketches to Intel HEX and emulated headlessly",
+      "ngspice operating point, transient, DC sweep and AC analyses",
+      "Lab Studio web editor with live sync and 3D view"
+    ],
+    "stack": ["TypeScript", "Node.js", "MCP", "avr8js", "ngspice", "KiCad CLI", "Playwright", "Arduino CLI", "Vite", "Vitest"],
+    "status": "Prototype; 8 commits in September 2026.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [
+      "Lab Studio screenshot with a circuit and live simulation",
+      "Clip: agent builds a blinking LED circuit, runs avr_run, then spice_simulate",
+      "Waveform plot exported from ngspice",
+      "Backend diagram from the README"
+    ],
+    "openQuestions": [
+      "Has a real board been built from an exported design?",
+      "Relation to the fridge diagnostics and hand keyboard hardware experiments?"
+    ],
+    "confidentiality": "Low. Fritzing parts are CC-BY-SA; credit them."
+  },
+  {
+    "slug": "h-distribution",
+    "name": "H Distribution",
+    "tier": 2,
+    "categories": ["business-software", "ai-agents", "dev-tools"],
+    "facets": { "role": "solo", "status": "prototype", "platforms": ["web", "cli-mcp"] },
+    "scores": { "impressiveness": 4, "uniqueness": 3, "readiness": 2, "story": 3 },
+    "lastActivity": "2026-04-16 (git); working tree newer",
+    "sourceFolders": ["D:/dev/H distribution"],
+    "repoVisibility": "no GitHub remote",
+    "hook": "Self-hosted publishing across social platforms, from a UI, a CLI, an API or an agent.",
+    "problem": "Posting one idea to many platforms means rewriting it per platform, scheduling by hand and checking replies in several inboxes.",
+    "built": "Housam built a Next.js and SQLite application with per-platform post variants, a persistent scheduler that sends due work through the same publishing service as immediate posts, a background worker that prevents overlapping ticks, analytics and an engagement inbox, connectors for platforms such as Instagram/Facebook, YouTube, Bluesky, Mastodon, Reddit and Telegram, and CLI and MCP interfaces over one service layer. It includes a template renderer for post images.",
+    "highlights": [
+      "One service layer behind UI, CLI, HTTP API and MCP",
+      "Scheduler and immediate publish share a single code path with structured outcomes",
+      "Assisted/manual states for platforms without full API access",
+      "Template renderer for post cards, including Arabic RTL variants"
+    ],
+    "stack": ["TypeScript", "Next.js", "React", "SQLite", "Drizzle ORM", "OAuth", "MCP"],
+    "status": "Prototype; connector coverage in real use is unverified.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/H distribution/debug-screens (11 template previews, e.g. preview-tweetcard-arabic-rtl.png, preview-tweetcard-glass.png)",
+      "D:/dev/H distribution/public/template-previews (8 images)"
+    ],
+    "missingAssets": [
+      "Composer screenshot showing one post with per-platform variants",
+      "Calendar/scheduler view",
+      "Clip: agent schedules a post through MCP, it appears in the UI"
+    ],
+    "openQuestions": [
+      "Which platforms have actually been connected and used?",
+      "Is this used for Housam's own publishing today?",
+      "Should it merge into the H story or stand alone?"
+    ],
+    "confidentiality": "Low. Do not show account handles or tokens in captures."
+  },
+  {
+    "slug": "atlagene",
+    "name": "Atlagene",
+    "tier": 2,
+    "categories": ["startup", "graphics-3d", "business-software"],
+    "facets": { "role": "co-founder", "status": "startup (pre-launch status unconfirmed)", "platforms": ["web"] },
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 3, "story": 4 },
+    "lastActivity": "2026-08-24",
+    "sourceFolders": ["D:/dev/atlagene-main"],
+    "repoVisibility": "private (Atlagene org)",
+    "hook": "Co-founding a genomics startup: engineering, accelerators and the product story in Lebanon.",
+    "problem": "Consumer and lab genomics services are hard to access and explain in the region; a young company needs both a platform and partners who trust it.",
+    "built": "Housam is Co-Founder and CTO (Engineering), covering engineering and infrastructure, accelerator work and local execution and relationships in Lebanon. Team documents credit co-founder Yasser Shkeir with designing and building the platform end to end (about 630 of 646 commits are Yasser's). Housam's directly evidenced work includes the B2B-first strategy and pitch deck, an interactive Three.js exhibition booth (including payload splitting for load performance), web integration and print/marketing collateral.",
+    "highlights": [
+      "Interactive Three.js 3D booth for events and the web",
+      "B2B-first strategy and investor/partner decks",
+      "Accelerator and lab-partner execution in Lebanon",
+      "Platform context (team-built): Next.js, Fastify, Python pipeline, separate identity and genomic stores on AWS"
+    ],
+    "stack": ["Three.js", "Next.js", "TypeScript", "Fastify", "Python", "PostgreSQL", "AWS", "Terraform"],
+    "status": "Startup; customer, revenue and clinical status unverified.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/atlagene-main/apps/web/public/og-image.png",
+      "D:/dev/atlagene-main/apps/web/public/marketing/linkedin-cover.png",
+      "D:/dev/atlagene-main/apps/web/public/booth/tex/banner.jpg",
+      "D:/dev/atlagene-main/apps/web/public/landing-imgs/b2b/lab-hero.webp",
+      "D:/dev/atlagene-main/docs/architecture/assets (32 images)"
+    ],
+    "missingAssets": [
+      "Screen recording of the 3D booth (orbit, hotspots)",
+      "Photo of the booth or collateral at a real event, if one happened",
+      "Approved logo and one-paragraph company description from the co-founders"
+    ],
+    "openQuestions": [
+      "Is atlagene.com live, and does Yasser approve this public wording?",
+      "Which accelerators accepted Atlagene, with dates?",
+      "Any signed lab partnerships that can be named?",
+      "Which engineering or infrastructure pieces are personally Housam's?"
+    ],
+    "confidentiality": "High. Company IP and partner names; get co-founder approval. Do not publish architecture counts, partner lab names or any health claim."
+  },
+  {
+    "slug": "chatability",
+    "name": "Chatability",
+    "tier": 2,
+    "categories": ["ai-agents", "consumer-apps", "mobile"],
+    "facets": { "role": "solo", "status": "beta", "platforms": ["web", "browser-extension", "ios"] },
+    "scores": { "impressiveness": 4, "uniqueness": 3, "readiness": 3, "story": 3 },
+    "lastActivity": "2026-09-08",
+    "sourceFolders": ["D:/dev/pdf chat"],
+    "repoVisibility": "private (HousamKak/chatability)",
+    "hook": "Ask the page you are reading: capture any part of a PDF or slide and get answers about exactly that.",
+    "problem": "Students and professionals reading long slide decks and papers want to ask about one figure or slide, not paste a whole document into a chatbot.",
+    "built": "Housam built it solo (91 commits from November 2025): started as PDF Chat/SlideChat, a React and Express app that converts decks to slides and lets you chat with Claude about the current slide with streaming, persistent conversations and per-user libraries with sharing; media served via short-lived HMAC-signed URLs. It grew into Chatability with a browser side-panel extension, an iOS app, a landing page and interactive demo generation.",
+    "highlights": [
+      "Claude Agent SDK with read-only tools and hard timeouts, resuming sessions per conversation",
+      "HMAC-signed media URLs so the owner/share model holds",
+      "Chrome side-panel extension (v0.15.x) for capture while reading",
+      "iOS client with fastlane setup"
+    ],
+    "stack": ["React", "Vite", "Express", "SQLite", "Claude Agent SDK", "Chrome Extensions MV3", "Swift/iOS", "poppler"],
+    "status": "Beta; web.chatability.app referenced by the landing page. Users unknown.",
+    "links": { "live": "https://web.chatability.app", "repo": null },
+    "assets": [
+      "D:/dev/pdf chat/landing/img (bg, orb, orb-mark brand images)",
+      "D:/dev/pdf chat/extension/icons"
+    ],
+    "missingAssets": [
+      "Clip: select a figure in a PDF, ask, streamed answer, then an interactive demo built from it",
+      "Extension side-panel screenshot",
+      "iOS screenshot in a device frame"
+    ],
+    "openQuestions": [
+      "Is the landing page deployed (which domain), and are sign-ups open?",
+      "Is the iOS app on TestFlight or the App Store?",
+      "Do not use backend/slides captures (they are uploaded user or course decks)"
+    ],
+    "confidentiality": "Medium. backend/slides and backend/captures hold uploaded decks; never use them as assets."
+  },
+  {
+    "slug": "manifold-strike",
+    "name": "Manifold Strike",
+    "tier": 2,
+    "categories": ["games", "graphics-3d"],
+    "facets": { "role": "solo on top of credited open-source engine", "status": "playable build", "platforms": ["desktop-native"] },
+    "scores": { "impressiveness": 5, "uniqueness": 5, "readiness": 2, "story": 5 },
+    "lastActivity": "2026-08-30",
+    "sourceFolders": ["D:/dev/manifoldstrike"],
+    "repoVisibility": "private (HousamKak/manifoldstrike)",
+    "hook": "A shooter that ships the recipe for its world, not the world: a 260 KB executable that generates seven levels at load time.",
+    "problem": "Games ship gigabytes of textures and meshes; the demoscene showed content can instead be generated from tiny programs, but that tooling is old and hard to build on.",
+    "built": "On top of werkkzeug3 (Farbrausch and .theprodukkt's open-sourced engine from kkrieger, credited and renamed), Housam built his own game: levels expanded from short plan strings into rooms, doorways, colonnades, storeys and stairs with walkable volumes, plus game logic, weapons, netcode and interface. Per README, the game is a 260 KB executable plus a 186 KB data file, and one 287-byte plan produced about 2.7 MB of mesh.",
+    "highlights": [
+      "Procedural level grammar: plan strings to architecture plus walkable volume",
+      "Textures, meshes, materials and music generated on the player's machine",
+      "Revived a 2012 open-source demoscene engine under a 32-bit VS2022 toolchain",
+      "Netcode and new game logic on a single-player engine heritage",
+      "MCP tooling present for agent-driven content work"
+    ],
+    "stack": ["C++", "x86 assembly (yasm)", "Direct3D", "werkkzeug3", "MSBuild", "MCP"],
+    "status": "Playable Windows build exists (play.bat, manifoldstrike.exe).",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/manifoldstrike/game/manifoldstrike.exe (build to capture from; no stills or video found)"
+    ],
+    "missingAssets": [
+      "Gameplay capture (60 s) through two levels; Super Camera can record it",
+      "Four 1920x1080 stills of distinct levels",
+      "Graphic: 287-byte plan string next to the generated level",
+      "File-size comparison graphic (exe plus data versus a typical asset pack)"
+    ],
+    "openQuestions": [
+      "Can the playable build be offered as a download (werkkzeug3 licence permits redistribution?)",
+      "Is multiplayer working across machines?",
+      "Exact share of new code versus engine code?"
+    ],
+    "confidentiality": "Low to medium. Credit Farbrausch/werkkzeug3 prominently; confirm the engine licence before offering a download."
+  },
+  {
+    "slug": "flying-screen",
+    "name": "Flying Screen",
+    "tier": 2,
+    "categories": ["research-simulation", "engineering-hardware"],
+    "facets": { "role": "solo", "status": "research", "platforms": ["web", "cli"] },
+    "scores": { "impressiveness": 4, "uniqueness": 5, "readiness": 4, "story": 4 },
+    "lastActivity": "2026-09-10",
+    "sourceFolders": ["D:/dev/flying screen"],
+    "repoVisibility": "public (HousamKak/flying-screen)",
+    "hook": "Can a display hover beside you while you work? A physics co-design engine that answers whether any such aircraft can exist.",
+    "problem": "A hovering personal display sounds simple, but rotor size, battery, mass, noise and control interact; the real question is whether any feasible design exists at all.",
+    "built": "Housam built a seven-layer co-design engine in Python, traced equation by equation to his own derivation, covering sizing, flight dynamics, control, missions, closure and tether options, with a browser UI, a CLI, tests against closed-form theory, MuJoCo simulations and a written paper (The Flying Screen) with derivations and a design study.",
+    "highlights": [
+      "Every number traces to an equation; tests check code against closed-form theory",
+      "Feasibility wall: for a given screen mass and flight time, does any design exist",
+      "MuJoCo turnaround and walk-loop simulations",
+      "A full paper with derivations, built from the engine's results"
+    ],
+    "stack": ["Python", "NumPy", "MuJoCo", "LaTeX", "HTML/JS"],
+    "status": "Research complete enough for a paper; public repository.",
+    "links": { "live": null, "repo": "https://github.com/HousamKak/flying-screen" },
+    "assets": [
+      "D:/dev/flying screen/cad/mujoco/turnaround_net.mp4 (21.7 MB), turnaround_spider.mp4, walk_loop.mp4, turnaround.mp4, turnaround_tuned.mp4",
+      "D:/dev/flying screen/cad/motion (4 files)",
+      "D:/dev/flying screen/paper/The Flying Screen.pdf"
+    ],
+    "missingAssets": [
+      "Screenshot of the web design tool with a feasible region",
+      "Feasibility-wall chart exported as SVG",
+      "Web-compressed 10 s MuJoCo loop for the card"
+    ],
+    "openQuestions": [
+      "Publish the paper on the blog or arXiv?",
+      "Any physical prototype planned?"
+    ],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "slideflip",
+    "name": "SlideFlip",
+    "tier": 2,
+    "categories": ["business-software", "dev-tools", "ai-agents"],
+    "facets": { "role": "solo (unconfirmed)", "status": "working engine", "platforms": ["cli"] },
+    "scores": { "impressiveness": 4, "uniqueness": 5, "readiness": 3, "story": 4 },
+    "lastActivity": "unknown (no git history)",
+    "sourceFolders": ["D:/dev/slides tool"],
+    "repoVisibility": "no GitHub remote",
+    "hook": "Turn an English PowerPoint deck into a correctly mirrored Arabic deck, with no Office install.",
+    "problem": "Localising consulting decks to Arabic means hours of manually mirroring shapes, connectors, tables and charts, and bidi text breaks embedded figures like FY26 or +3.3%.",
+    "built": "A .NET 8 engine over the OOXML package that mirrors geometry, groups, connectors, directional shapes, tables and charts into RTL reading order, a CLI with translate, localize, harvest and verify commands, a Claude-backed translation provider isolated from the core, and a PDF importer that rebuilds decks as real shapes for testing. README reports 67 tests that need no PowerPoint.",
+    "highlights": [
+      "Works directly on OOXML: no Office, no network for the core",
+      "Translate-then-mirror ordering so bidi flags and embedded Latin render correctly",
+      "Invariant-based verify harness over a fixture corpus",
+      "Translation provider kept out of the core to avoid a network dependency"
+    ],
+    "stack": [".NET 8", "C#", "DocumentFormat.OpenXml", "Claude API"],
+    "status": "Working engine and CLI; not packaged.",
+    "links": { "live": null, "repo": null },
+    "assets": [
+      "D:/dev/slides tool/samples (14 images and fixture decks)"
+    ],
+    "missingAssets": [
+      "Before/after slide pairs (English LTR and Arabic RTL) on a generic sample deck",
+      "Animated GIF toggling between the two",
+      "Screenshot of the verify harness output"
+    ],
+    "openQuestions": [
+      "Was this built for a client or for Davidson Kempner/OmniVista work? If so, which samples are safe?",
+      "Is xx.pptx at the repo root a client deck?",
+      "Any plan to sell it as a tool for Arabic localisation agencies?"
+    ],
+    "confidentiality": "Medium until provenance of samples is confirmed; use a self-made sample deck for all public images."
+  },
+  {
+    "slug": "davidson-kempner-ai",
+    "name": "Enterprise conversational AI pilot (Davidson Kempner)",
+    "tier": 2,
+    "categories": ["enterprise", "ai-agents"],
+    "facets": { "role": "product lead and senior software", "status": "pilot", "platforms": ["enterprise"] },
+    "scores": { "impressiveness": 5, "uniqueness": 3, "readiness": 1, "story": 4 },
+    "lastActivity": "ongoing (since 2024)",
+    "sourceFolders": [],
+    "repoVisibility": "none (client work)",
+    "hook": "Leading a pilot AI systems team building a conversational system over a hedge fund's company data.",
+    "problem": "Investment teams need answers that draw on data spread across many internal systems, with access boundaries respected.",
+    "built": "Per Housam's own account, since 2024 he has headed the pilot AI systems team as Product Lead and Senior Software, creating a conversational system connected to company data through MCP integrations, a Gremlin graph layer, Cosmos DB, Azure AI Search and distributed microservices.",
+    "highlights": [
+      "MCP integrations to company data sources",
+      "Graph access via Gremlin over Cosmos DB",
+      "Retrieval through Azure AI Search",
+      "Distributed microservice architecture"
+    ],
+    "stack": ["MCP", "Gremlin", "Azure Cosmos DB", "Azure AI Search", "Microservices"],
+    "status": "Pilot; outcomes and rollout status unknown.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [
+      "A generic, non-identifying architecture diagram approved by the client (optional)"
+    ],
+    "openQuestions": [
+      "Can Davidson Kempner be named publicly, and is this wording approved?",
+      "Exact title and employment/assignment relationship (via OmniVista?)",
+      "Team size and any shareable outcome"
+    ],
+    "confidentiality": "High. Summary only, on the experience page; no code, screenshots, data sources or metrics without written approval. Recommend it appears as an experience entry rather than a project page."
+  },
+  {
+    "slug": "realityforge",
+    "name": "RealityForge",
+    "tier": 3,
+    "categories": ["research-simulation", "graphics-3d"],
+    "scores": { "impressiveness": 4, "uniqueness": 5, "readiness": 1, "story": 3 },
+    "lastActivity": "2026-11-02",
+    "hook": "An engine for constructing, testing and executing mathematical worlds, with BlockForge as its host.",
+    "problem": "Game physics is usually hand-written special cases; RealityForge searches for laws from declared structures and principles.",
+    "built": "Construction compiler over finite groups and graphs deriving admissible law families, executable graph field theories with exact energy and stability checks, a C++ core with checkpoint and replay. Version 0.3.0 (October 2026), 54 commits.",
+    "highlights": ["Construction compiler with an independent verifier", "Exact stability classification before running", "BlockForge physics package import"],
+    "stack": ["TypeScript", "C++", "CMake"],
+    "status": "Research prototype.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": ["One visual of a discovered world running in BlockForge", "Plain-language explainer diagram"],
+    "openQuestions": ["Better as a blog essay than a project card?"],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "rung",
+    "name": "Rung",
+    "tier": 3,
+    "categories": ["infrastructure"],
+    "scores": { "impressiveness": 4, "uniqueness": 3, "readiness": 2, "story": 4 },
+    "lastActivity": "2026-09-17",
+    "hook": "The box is disposable, the data is not: infrastructure-as-code with a timed rebuild drill as its test suite.",
+    "problem": "Self-hosted servers drift into precious, hand-fixed machines that nobody dares rebuild.",
+    "built": "OpenTofu modules, cloud-init and state strategies (Turso, Litestream, wal-g) so any Dockerized app can be destroyed and rebuilt; make drill destroys, recreates, restores and times the whole thing.",
+    "highlights": ["Rebuild drill as the test suite", "Apps must declare a state strategy to deploy", "No daemon or panel on the box"],
+    "stack": ["OpenTofu", "cloud-init", "Docker", "Litestream", "wal-g", "Turso"],
+    "status": "Working; under Houya-Projects org (private).",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": ["Terminal recording of make drill with timings", "Ladder diagram (laptop to N boxes)"],
+    "openQuestions": ["Measured drill time and cost savings (README mentions measured takedown savings) can be quoted?"],
+    "confidentiality": "Medium. Scrub hostnames, IPs and DNS from any capture."
+  },
+  {
+    "slug": "saken",
+    "name": "Saken",
+    "tier": 3,
+    "categories": ["business-software", "mobile"],
+    "scores": { "impressiveness": 4, "uniqueness": 3, "readiness": 3, "story": 3 },
+    "lastActivity": "2026-09-12",
+    "hook": "Community and residential management across web, mobile, admin, CLI and MCP.",
+    "problem": "Residential communities run on spreadsheets and chat groups.",
+    "built": "Team product (Saken-Community-Management org). In the web app, nkaticha has 209 commits and Housam 70; Housam authored the sampled history of the NestJS API, React Native mobile app, admin console and MCP server.",
+    "highlights": ["Multi-tenant permissions on Supabase", "React Native client with Play Store assets", "MCP access to the API"],
+    "stack": ["Next.js", "NestJS", "Supabase", "React Native/Expo", "MCP"],
+    "status": "Unknown deployment state.",
+    "links": { "live": null, "repo": null },
+    "assets": ["D:/dev/Saken Community/saken-mobile/store/play-assets/screenshots (00-launch to 04-budget)", "D:/dev/Saken Community/Saken-Logo/png (61 files)"],
+    "missingAssets": ["Web dashboard screenshot with demo data"],
+    "openQuestions": ["Housam's role and the team's approval to show it", "Is it a client engagement?", "Live users?"],
+    "confidentiality": "High until role and client status are confirmed. Folder contains demo-account and production backup files; never use them."
+  },
+  {
+    "slug": "3modly",
+    "name": "3modly",
+    "tier": 3,
+    "categories": ["graphics-3d", "ai-agents"],
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 4, "story": 3 },
+    "lastActivity": "2026-07-25",
+    "hook": "A composable 3D model editor an agent can drive and see through.",
+    "problem": "Agents cannot see or check the 3D geometry they generate.",
+    "built": "React-three-fiber editor plus a 37-tool MCP server (per README): parametric parts, socket snapping, collision checks, six-view contact sheets, mesh stats, undo history and GLB export.",
+    "highlights": ["Agent and hand edits share one validated path", "Six-view screenshots so the agent can see its work"],
+    "stack": ["TypeScript", "React", "react-three-fiber", "Zustand", "Vite", "MCP"],
+    "status": "Prototype.",
+    "links": { "live": null, "repo": null },
+    "assets": ["D:/dev/3modly/screenshots (125 images, e.g. ancient-tree-final-iso.png)", "D:/dev/3modly/screenshot.png", "D:/dev/3modly/exports"],
+    "missingAssets": ["20 s clip of an agent assembling a model"],
+    "openQuestions": ["Fold into BlockForge story?"],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "codegraph",
+    "name": "CodeGraph",
+    "tier": 3,
+    "categories": ["dev-tools", "ai-agents"],
+    "scores": { "impressiveness": 3, "uniqueness": 3, "readiness": 3, "story": 3 },
+    "lastActivity": "2025-11-19",
+    "hook": "Gives LLMs eyes on code relationships via a Neo4j graph and four conservation laws.",
+    "problem": "Agents break call sites and references they cannot see.",
+    "built": "Python AST indexer into Neo4j, FastAPI backend, frontend, CLI and read-only MCP server validating changes by snapshot comparison. Commits split between Housam and Claude.",
+    "highlights": ["Four conservation-law validators"],
+    "stack": ["Python", "Neo4j", "FastAPI", "MCP"],
+    "status": "Prototype; public repo.",
+    "links": { "live": null, "repo": "https://github.com/HousamKak/codegraph" },
+    "assets": [],
+    "missingAssets": ["Graph view screenshot"],
+    "openQuestions": [],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "morphic-systems-lab",
+    "name": "Morphic Systems Lab",
+    "tier": 3,
+    "categories": ["research-simulation"],
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 3, "story": 3 },
+    "lastActivity": "unknown (no git history)",
+    "hook": "A systems-modelling kernel that refuses to render claims the model has not earned.",
+    "problem": "System-dynamics diagrams often display equations that differ from what the simulator runs.",
+    "built": "Headless semantic kernel (144 tests per README) with dimensional, scale-operation and index-conformance checking, plus a studio UI as a projection of the model.",
+    "highlights": ["The declared equation is the equation that runs", "Conformance-gated outputs"],
+    "stack": ["TypeScript", "Vite"],
+    "status": "Prototype.",
+    "links": { "live": null, "repo": null },
+    "assets": ["D:/dev/morphic-systems-lab/model-preview.png", "D:/dev/morphic-systems-lab/quantification-preview.png"],
+    "missingAssets": [],
+    "openQuestions": ["reference/millennium-institute holds third-party material: keep out of public assets"],
+    "confidentiality": "Low (exclude reference/)."
+  },
+  {
+    "slug": "super-camera",
+    "name": "Super Camera",
+    "tier": 3,
+    "categories": ["media-creative", "dev-tools"],
+    "scores": { "impressiveness": 3, "uniqueness": 2, "readiness": 4, "story": 3 },
+    "lastActivity": "2026-10 (captures dated 2026-10-12; no git)",
+    "hook": "Native Windows screen and camera recorder with hardware H.264 and no Electron.",
+    "problem": "Screen recorders are either bloated or lack a good camera bubble and overlay.",
+    "built": "WPF (.NET 9) app over Windows.Media.Capture and Windows.Graphics.Capture with a movable camera bubble, floating overlay excluded from capture, mic and system audio, light editing.",
+    "highlights": ["Overlay excluded from capture", "Hardware encoding, no ffmpeg"],
+    "stack": ["C#", ".NET 9", "WPF", "Windows.Graphics.Capture"],
+    "status": "Working personal tool; useful for recording the shot list.",
+    "links": { "live": null, "repo": null },
+    "assets": ["D:/dev/Super Camera/Captures (3 MP4 screen recordings; review content before use)"],
+    "missingAssets": ["Screenshot of the floating bar"],
+    "openQuestions": [],
+    "confidentiality": "Check existing captures for private screen content."
+  },
+  {
+    "slug": "math-is-war",
+    "name": "Math Is War",
+    "tier": 3,
+    "categories": ["games"],
+    "scores": { "impressiveness": 3, "uniqueness": 3, "readiness": 4, "story": 3 },
+    "lastActivity": "2026-07-03",
+    "hook": "An artillery game where your shot is a math function.",
+    "problem": "Making functions and graphs fun to practise.",
+    "built": "TypeScript rewrite inspired by Graphwar with an academy, courses and level select; Tauri, Android and iOS shells. Commits are under 'Parabellum Dev'.",
+    "highlights": ["Cross-platform shells", "Pixel logo set"],
+    "stack": ["TypeScript", "Tauri", "Capacitor"],
+    "status": "Playable; public repo.",
+    "links": { "live": null, "repo": "https://github.com/HousamKak/math-is-war" },
+    "assets": ["D:/dev/MathIsWar/logo-gen/pixel/banner-explosion-full.png", "D:/dev/MathIsWar/site/assets (12 images)"],
+    "missingAssets": ["Gameplay GIF"],
+    "openQuestions": ["Who is Parabellum Dev, and what is the Graphwar attribution? graphwar/rsc assets may be Graphwar's originals"],
+    "confidentiality": "Medium: confirm Graphwar asset licence."
+  },
+  {
+    "slug": "jutsu-dojo",
+    "name": "Jutsu Dojo",
+    "tier": 3,
+    "categories": ["games", "graphics-3d"],
+    "scores": { "impressiveness": 4, "uniqueness": 4, "readiness": 3, "story": 3 },
+    "lastActivity": "2026-08-13",
+    "hook": "Weave hand seals at your webcam and cast effects into a 3D shrine.",
+    "problem": "Webcam hand-gesture recognition that adapts to one person's hands.",
+    "built": "MediaPipe HandLandmarker with personal k-NN, a patch classifier and sequence priors; Three.js effects; a deterministic simulation engine with replay hash checks. Graduated from an H applet.",
+    "highlights": ["Personalised recognition", "Deterministic replay verification"],
+    "stack": ["TypeScript", "MediaPipe", "Three.js", "Express"],
+    "status": "Prototype.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": ["Webcam clip (with consent)"],
+    "openQuestions": ["Rename and strip Naruto sound effects before publishing"],
+    "confidentiality": "Medium: Naruto names and downloaded sound clips are third-party IP; present the recognition tech, not the franchise."
+  },
+  {
+    "slug": "maraqi-alnuha",
+    "name": "Maraqi al-Nuha",
+    "tier": 3,
+    "categories": ["consumer-apps"],
+    "scores": { "impressiveness": 3, "uniqueness": 3, "readiness": 4, "story": 3 },
+    "lastActivity": "2026-08-17",
+    "hook": "An evidence ledger for learning, not a school management system.",
+    "problem": "Course completion does not show what a learner can actually do.",
+    "built": "Bilingual (Arabic/English) site and a platform repo with an evidence-led domain model.",
+    "highlights": ["Bilingual SEO and OG cards"],
+    "stack": ["HTML", "JavaScript"],
+    "status": "Site configured at maraqi-alnuha.housamkak.com.",
+    "links": { "live": "https://maraqi-alnuha.housamkak.com", "repo": "https://github.com/HousamKak/maraqi-alnuha" },
+    "assets": ["D:/dev/maraqi-alnuha/og (og-ar-home.png, og-en-home.png, curriculum variants)"],
+    "missingAssets": [],
+    "openQuestions": ["Is this for a real institution? Approval to show?"],
+    "confidentiality": "Medium until the institution relationship is confirmed."
+  },
+  {
+    "slug": "highlightability",
+    "name": "Highlightability",
+    "tier": 3,
+    "categories": ["dev-tools"],
+    "scores": { "impressiveness": 2, "uniqueness": 3, "readiness": 3, "story": 2 },
+    "lastActivity": "2025-10-29",
+    "hook": "Persistent, Git-aware code highlights and annotations in VS Code.",
+    "problem": "Notes on code get lost as files change.",
+    "built": "VS Code extension with persistence and Git-aware highlights; full logo set.",
+    "highlights": [],
+    "stack": ["TypeScript", "VS Code API"],
+    "status": "Public repo (1 star).",
+    "links": { "live": null, "repo": "https://github.com/HousamKak/highlightability" },
+    "assets": ["D:/dev/Complete Work/highlightability/assets/logo/png"],
+    "missingAssets": ["Editor screenshot"],
+    "openQuestions": ["Published on the VS Code Marketplace?"],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "universal-source-control",
+    "name": "Universal Source Control",
+    "tier": 3,
+    "categories": ["research-simulation", "dev-tools"],
+    "scores": { "impressiveness": 3, "uniqueness": 4, "readiness": 2, "story": 4 },
+    "lastActivity": "2026-09-24",
+    "hook": "Git versions representations; this versions evolution.",
+    "problem": "Content such as game assets does not merge the way text does.",
+    "built": "Research essay series, spec and an early implementation of a domain-agnostic state/operation versioning core.",
+    "highlights": [],
+    "stack": ["Markdown", "TypeScript"],
+    "status": "Research; better published as a blog series.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [],
+    "openQuestions": [],
+    "confidentiality": "Low."
+  },
+  {
+    "slug": "small-tools-and-experiments",
+    "name": "Lab grid: smaller tools and experiments",
+    "tier": 3,
+    "categories": ["dev-tools", "games", "consumer-apps", "research-simulation"],
+    "hook": "Smaller tools, games and experiments, shown as a compact grid.",
+    "problem": "n/a",
+    "built": "Candidates: Classitin (classroom screen monitoring, public repo), Slip (Go terminal entertainment platform, public), iPhoneCopy (verified file transfer TUI), DepeNsee (dependency visualiser, public), Geometry Explorer, WhereTime (public), plan-one-day (public), Wara2 (Telegram card game with AI players, public), Dama, wordle (English/Arabic), Car Analytics (OBD-II), Hand Keyboard, Genlab (3D compression research), LifeOS, book.js (3D page flip, public), Collatz terrain (public), MarkovJunior adaptation (credit upstream), Highlightability, blog interactive papers.",
+    "highlights": [],
+    "stack": [],
+    "status": "Mixed.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": ["One thumbnail per item"],
+    "openQuestions": ["Which of these does Housam want visible at all?"],
+    "confidentiality": "Low; check each repo for secrets before linking."
+  },
+  {
+    "slug": "vec2-ai",
+    "name": "vec2.ai",
+    "tier": "do-not-publish",
+    "categories": ["ai-agents", "graphics-3d"],
+    "hook": "AI logo generation with in-house vectorisation and an SVG editor.",
+    "problem": "n/a",
+    "built": "Houya-Projects repository where Yasser Shkeir authored about 244 of 246 commits; Housam has 2. Not presentable as Housam's project.",
+    "highlights": [],
+    "stack": [],
+    "status": "Live at vec2.ai (per code), owned by the Houya team.",
+    "links": { "live": "https://vec2.ai", "repo": null },
+    "assets": [],
+    "missingAssets": [],
+    "openQuestions": ["What was Housam's role, if any (product, design, business)? Could be mentioned as a contribution only."],
+    "confidentiality": "Ownership: list only as a contribution if Housam confirms a role."
+  },
+  {
+    "slug": "generals-zh-android",
+    "name": "Generals Zero Hour Android port and related game ports",
+    "tier": "do-not-publish",
+    "categories": ["games"],
+    "hook": "n/a",
+    "problem": "n/a",
+    "built": "Fork of MYSOREZ/GeneralsZH-Android-Port (from EA's GPL v3 source release) with 149 Housam commits since October 2026, a site at zerohour.housamkak.com, a licence server and payment flows; plus generals-in-sa, mtasa-blue changes and Generals data/probe/report folders.",
+    "highlights": [],
+    "stack": [],
+    "status": "Public repo and site exist.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [],
+    "openQuestions": ["Get legal advice on monetising a port of EA IP before it appears on the portfolio", "Remove from the housamkak.com domain if risk is confirmed?"],
+    "confidentiality": "High: EA trademarks and game assets, paid licensing on a GPL fork, GTA/MTA third-party code. Keep off the portfolio."
+  },
+  {
+    "slug": "upstream-and-reference-checkouts",
+    "name": "Upstream and reference checkouts",
+    "tier": "do-not-publish",
+    "categories": [],
+    "hook": "n/a",
+    "problem": "n/a",
+    "built": "CnC_Generals_Zero_Hour (EA source), GeneralsGameCode, tsh-ref, gta-reversed, plugin-sdk, bot-crossing, d3d8to9, wilson, universal modder, dxsdk, jdk17, VC6, zh-data-staging, zh-probe-wt, zh-reports, backups, pocket-tts-svc, tts-svc.",
+    "highlights": [],
+    "stack": [],
+    "status": "Third-party or artifact folders.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [],
+    "openQuestions": ["Consider making the public CnC_Generals_Zero_Hour fork private or clearly marked as a mirror"],
+    "confidentiality": "Third-party IP or private data."
+  },
+  {
+    "slug": "client-and-private-work",
+    "name": "Client and private business work",
+    "tier": "do-not-publish",
+    "categories": ["enterprise"],
+    "hook": "n/a",
+    "problem": "n/a",
+    "built": "OmniVista client code, Risk and Risk-Modeling repos, integriting-*, north-assurance, emergency-lebanon, Houya website, emlbanet, gift shop, Store real data, Video Editing zh_trailer and Cunningham textbook projects.",
+    "highlights": [],
+    "stack": [],
+    "status": "Unknown client status for several.",
+    "links": { "live": null, "repo": null },
+    "assets": [],
+    "missingAssets": [],
+    "openQuestions": ["Which of these are clients that could provide an approved testimonial or summary?"],
+    "confidentiality": "Client or third-party; approved summaries only."
+  }
+]

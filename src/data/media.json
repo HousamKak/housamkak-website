@@ -1,0 +1,301 @@
+{
+  "blockforge": {
+    "hero": "/media/blockforge/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/blockforge/courtyard.webp",
+        "alt": "A sunlit voxel courtyard with striped stone arches, cypress and orange trees, a patterned zellige floor and a golden sphere on a fountain, seen from walking height.",
+        "caption": "The Courtyard, a baked walkable world that runs in the browser."
+      },
+      {
+        "src": "/media/blockforge/golden-square.webp",
+        "alt": "Aerial view of a voxel town square at golden hour, with tiled roofs, a clock tower and a crowd of small figures casting long shadows.",
+        "caption": "One world at golden hour, the frame the BlockForge landing page tilts into."
+      },
+      {
+        "src": "/media/blockforge/high-citadel.webp",
+        "alt": "A painterly render of a towering rock citadel rising out of a turquoise sea under a blue sky with heavy clouds and distant mountains.",
+        "caption": "The painterly concept art direction, rendered by the engine from a voxel world."
+      },
+      {
+        "src": "/media/blockforge/looks-grid.webp",
+        "alt": "Four views of the same small voxel park with a tree, a figure and a night-sky backdrop: plain 3D, Game Boy green, CRT and pixel 3D.",
+        "caption": "One world, four looks: plain, Game Boy, CRT and pixel 3D."
+      },
+      {
+        "src": "/media/blockforge/photoreal-still-life.webp",
+        "alt": "A dark, softly lit still life of a classical bust, three gold goblets, a blue and white vase, apples, a green bottle and a chess set on a table.",
+        "caption": "The photoreal still life test, rendered by BlockForge."
+      },
+      {
+        "src": "/media/blockforge/lamplighter.webp",
+        "alt": "A night street of half-timbered houses with flower boxes and street lamps, where a boy in a blue coat walks beside a large orange fox.",
+        "caption": "A frame from the Lamplighter short film."
+      },
+      {
+        "src": "/media/blockforge/castle.webp",
+        "alt": "A white voxel castle with many blue conical roofs and turrets, surrounded by walls, gardens and pine trees under a bright sky.",
+        "caption": "A castle built from a generator script through the CLI."
+      },
+      {
+        "src": "/media/blockforge/synthwave.webp",
+        "alt": "A synthwave scene: a neon road runs over a magenta grid toward a striped setting sun, flanked by palm trees and wireframe mountains.",
+        "caption": "The synthwave art direction applied to a generated scene."
+      }
+    ],
+    "video": {
+      "src": "/media/blockforge/loop.mp4",
+      "poster": "/media/blockforge/loop-poster.webp"
+    },
+    "og": "/og/blockforge.png",
+    "heroAlt": "A painterly render of a deep jungle gorge with ruined stone arches, a waterfall down a mossy tower and sunlit cliffs, made by BlockForge from a voxel world.",
+    "turntables": [
+      {
+        "src": "/media/blockforge/turntable-train.mp4",
+        "poster": "/media/blockforge/turntable-train.webp",
+        "alt": "A long voxel steam train with a black locomotive, tender and coloured passenger carriages beside a station platform, turning slowly on a dark background.",
+        "caption": "Grand Express train, about 88,000 blocks, exported to GLB and turned in three.js."
+      },
+      {
+        "src": "/media/blockforge/turntable-rocket.mp4",
+        "poster": "/media/blockforge/turntable-rocket.webp",
+        "alt": "A voxel rocket launch complex with a white rocket on its pad, a dark service tower, hangars and fuel tanks on an orange base, turning slowly.",
+        "caption": "Display rocket and launch complex, exported to GLB and turned in three.js."
+      },
+      {
+        "src": "/media/blockforge/turntable-mansion.mp4",
+        "poster": "/media/blockforge/turntable-mansion.webp",
+        "alt": "A large voxel mansion with stepped brown roofs, cream walls, a courtyard pool and green hedges, turning slowly on a dark background.",
+        "caption": "Mansion model, exported to GLB and turned in three.js."
+      }
+    ],
+    "models": [
+      {
+        "src": "/media/blockforge/model.glb",
+        "alt": "Voxel rocket launch complex, LOD1, quantized GLB (about 270 KB)."
+      },
+      {
+        "src": "/media/blockforge/train.glb",
+        "alt": "Voxel steam train, LOD2 GLB (about 80 KB)."
+      }
+    ]
+  },
+  "h-system": {
+    "hero": null,
+    "gallery": [
+      {
+        "src": "/media/h-system/woodr-geometry.webp",
+        "alt": "A dark canvas showing a circle with a right triangle inscribed on its diameter, labelled points and notes explaining that the angle at P stays 90 degrees.",
+        "caption": "Woodr, the drawing language inside H, constructing relational geometry."
+      },
+      {
+        "src": "/media/h-system/woodr-plots.webp",
+        "alt": "A plotted parabola on dark axes with a secant line approaching the tangent and shaded rectangles under the curve.",
+        "caption": "Woodr plotting a curve, a tangent and a Riemann sum."
+      },
+      {
+        "src": "/media/h-system/woodr-macros.webp",
+        "alt": "A hexagon, an eight-pointed star in a circle, and a small macro stamped three times, drawn in thin blue and green lines on a dark canvas.",
+        "caption": "Woodr macros and iteration."
+      }
+    ],
+    "video": {
+      "src": "/media/h-system/woodr-loop.mp4",
+      "poster": "/media/h-system/woodr-loop-poster.webp"
+    },
+    "og": null
+  },
+  "pos-store-management": {
+    "hero": "/media/pos-store-management/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/pos-store-management/hero.webp",
+        "alt": "Dark point-of-sale checkout screen with a barcode search bar, a cart of six bags of coffee beans with a bundle discount, cash payment selected and a change calculator in USD and Lebanese lira.",
+        "caption": "Checkout with a bundle discount and a dual-currency change calculator (synthetic demo data)."
+      },
+      {
+        "src": "/media/pos-store-management/reports.webp",
+        "alt": "Reports and analytics dashboard showing total sales, revenue, realized profit, inventory health and a daily cash Z-report, each amount shown in dollars and lira.",
+        "caption": "Read-only remote viewer reports (synthetic demo data)."
+      },
+      {
+        "src": "/media/pos-store-management/reports-arabic.webp",
+        "alt": "The same reports dashboard laid out right to left in Arabic, with the sidebar on the right.",
+        "caption": "Full Arabic, right-to-left interface (synthetic demo data)."
+      }
+    ],
+    "video": null,
+    "og": "/og/pos-store-management.png"
+  },
+  "anythyng": {
+    "hero": "/media/anythyng/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/anythyng/home.webp",
+        "alt": "Phone screen with the AnyThyng prompt \"Describe it and this screen becomes it\", a row of example app chips and a text box asking what you want.",
+        "caption": "The AnyThyng home: describe an app in one sentence."
+      },
+      {
+        "src": "/media/anythyng/motor.webp",
+        "alt": "Phone screen of a generated \"Motor Proteins\" app showing an interactive kinesin model walking along a microtubule, with labelled parts and controls.",
+        "caption": "A generated interactive science app."
+      },
+      {
+        "src": "/media/anythyng/shop.webp",
+        "alt": "Phone screen of a generated shop app with category filters and product cards with prices on a dark pink theme.",
+        "caption": "A generated storefront app."
+      },
+      {
+        "src": "/media/anythyng/brickfall.webp",
+        "alt": "Phone screen of a generated falling-block puzzle game called Brickfall, with a brick-textured board and on-screen controls.",
+        "caption": "A generated puzzle game."
+      }
+    ],
+    "video": null,
+    "og": "/og/anythyng.png"
+  },
+  "uipen": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "video-studio": {
+    "hero": "/media/video-studio/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/video-studio/war-village-night.webp",
+        "alt": "A voxel hillside village of stone houses at dusk, lit windows scattered among trees and dark slopes behind.",
+        "caption": "The stone village at night, from the short film WAR."
+      },
+      {
+        "src": "/media/video-studio/fractals-koch.webp",
+        "alt": "A clean explainer frame on a cream background: a table of perimeters growing by four thirds next to a blue Koch snowflake outline.",
+        "caption": "An animated explainer frame from the fractals film."
+      }
+    ],
+    "video": {
+      "src": "/media/video-studio/war-excerpt.mp4",
+      "poster": "/media/video-studio/war-excerpt-poster.webp"
+    },
+    "og": null
+  },
+  "app-monitor": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "budgetability": {
+    "hero": "/media/budgetability/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/budgetability/analytics.webp",
+        "alt": "A warm cream analytics dashboard with spending totals, a pie chart of spending by category and line charts of daily spending and budget against spending.",
+        "caption": "Analytics: spending by category and budget tracking."
+      },
+      {
+        "src": "/media/budgetability/calendar.webp",
+        "alt": "A month calendar where each day lists small income and expense amounts, next to a financial planner panel.",
+        "caption": "The calendar view of daily cash flow."
+      }
+    ],
+    "video": null,
+    "og": null
+  },
+  "partforge": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "electrical-lab": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "h-distribution": {
+    "hero": "/media/h-distribution/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/h-distribution/tweetcard-arabic-rtl.webp",
+        "alt": "A square social card on a purple and blue gradient with the name Housam Kak, a handle and a short line of text, laid out right to left.",
+        "caption": "A generated post card in the right-to-left template."
+      },
+      {
+        "src": "/media/h-distribution/starter-hero.webp",
+        "alt": "A square social card reading \"The dragon flies on baked physics.\" with the caption 50,000 voxels, 100 frames, 60 fps.",
+        "caption": "A generated hero card from a post brief."
+      },
+      {
+        "src": "/media/h-distribution/tweetcard-glass.webp",
+        "alt": "A square social card with a frosted glass panel holding a name, handle and short post on a dark purple gradient.",
+        "caption": "The glass card template."
+      }
+    ],
+    "video": null,
+    "og": null
+  },
+  "atlagene": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "chatability": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "manifold-strike": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  },
+  "flying-screen": {
+    "hero": "/media/flying-screen/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/flying-screen/turnaround-frames.webp",
+        "alt": "A strip of simulation frames showing a small quadrotor carrying a screen circling a standing figure on a checkered floor.",
+        "caption": "MuJoCo closed-loop turnaround, frame by frame."
+      },
+      {
+        "src": "/media/flying-screen/walk-frames.webp",
+        "alt": "A strip of simulation frames of the hovering screen following a figure as it walks across a checkered floor.",
+        "caption": "The screen tracking a walking user in simulation."
+      }
+    ],
+    "video": {
+      "src": "/media/flying-screen/walk-loop.mp4",
+      "poster": "/media/flying-screen/walk-loop-poster.webp"
+    },
+    "og": null
+  },
+  "slideflip": {
+    "hero": "/media/slideflip/hero.webp",
+    "gallery": [
+      {
+        "src": "/media/slideflip/hero.webp",
+        "alt": "Two versions of the same slide side by side: on the left an English left-to-right layout with arrows, a table and bar charts, on the right the mirrored right-to-left version.",
+        "caption": "Before and after: a generic test slide mirrored for right-to-left."
+      },
+      {
+        "src": "/media/slideflip/arabic-pair.webp",
+        "alt": "An Arabic slide before and after mirroring: the arrows, table columns and charts flip direction while the Arabic text and figures stay correct.",
+        "caption": "Arabic text in a left-to-right layout, then correctly mirrored."
+      }
+    ],
+    "video": null,
+    "og": null
+  },
+  "enterprise-ai-pilot": {
+    "hero": null,
+    "gallery": [],
+    "video": null,
+    "og": null
+  }
+}

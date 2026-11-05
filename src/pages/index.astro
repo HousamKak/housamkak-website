@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { allWork, media, CAT, tierLabel } from '../lib/data';
+import { writing } from '../lib/writing';
+
+const work = await allWork();
+const flagship = work.filter((w) => w.data.tier === 1);
+const lead = flagship.find((w) => w.id === 'blockforge') ?? flagship[0];
+const rest = flagship.filter((w) => w !== lead);
+const leadMedia = lead ? media(lead.id) : null;
+const leadImg = leadMedia?.hero ?? '/img/baalbek.webp';
+const selected = work.filter((w) => w.data.tier === 2).slice(0, 8);
+const posts = (await writing()).slice(0, 4);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+---
+<Base>
+  <div class="wrap"><div class="inner">
+    <header class="hero">
+      <div class="kicker">{site.name} · {site.location}</div>
+      <h1 class="display">Engineer, mathematician,<br><span>builder of systems.</span></h1>
+      <p class="lede">I lead product and software delivery for enterprise AI, and build my own tools on the side: an agent workspace, a programmable 3D world engine and offline-first retail software.</p>
+      <div class="now">
+        <div><span class="dot"></span><em>Now:</em> product lead and senior software on an enterprise conversational AI pilot</div>
+        <div><em>Training:</em> B.E. Mechanical Engineering, major in Mathematics, AUB</div>
+      </div>
+    </header>
+
+    {lead && (
+      <section class="flag" aria-label="Flagship systems">
+        <a class="feature" href={`/work/${lead.id}`}>
+          <img src={leadImg} alt={leadMedia?.hero ? (leadMedia.heroAlt ?? `${lead.data.title}: hero render`) : 'BlockForge viewer: the Baalbek 1970 world at night, title card in Arabic and English'} width="1600" height="1000" fetchpriority="high">
+          <div class="cap">
+            <div class="kicker">Flagship · {CAT[lead.data.categories[0]] ?? 'System'}</div>
+            <h3>{lead.data.title}</h3>
+            <p>{lead.data.hook}</p>
+          </div>
+        </a>
+        <div class="stack">
+          {rest.map((w, i) => (
+            <a class="mini" href={`/work/${w.id}`}>
+              <span class="num">0{i + 2}</span>
+              <h3>{w.data.title}</h3>
+              <p>{w.data.hook}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section aria-labelledby="sel">
+      <div class="section-h"><h2 id="sel">Selected work</h2><a href="/work">All {work.length} projects →</a></div>
+      <div class="rows">
+        {selected.map((w) => (
+          <a class="row" href={`/work/${w.id}`}>
+            <span class="t">{tierLabel(w.data.tier)}</span>
+            <h3>{w.data.title}</h3>
+            <p>{w.data.hook}</p>
+            <span class="cat">{w.data.categories.slice(0, 2).map((c) => CAT[c] ?? c).join(' · ')}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section aria-labelledby="wr">
+      <div class="section-h"><h2 id="wr">Writing</h2><a href="/writing">Everything →</a></div>
+      <div class="writing">
+        {posts.map((p) => (
+          <a class="post" href={p.url}>
+            <div class="kicker">{p.kind} · {fmt(p.date)}</div>
+            <h3>{p.title}</h3>
+            <p>{p.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div></div>
+</Base>
