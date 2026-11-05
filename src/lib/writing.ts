@@ -4,7 +4,7 @@ export type Entry = { title: string; url: string; description: string; date: Dat
 
 const clean = (s: string) =>
   s.replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-   .replace(/\s*[20132014]\s*/g, ', ');
+   .replace(/\s*[–—]\s*/g, ', ');
 
 // Papers are not in the blog RSS, so they are listed here.
 const PAPERS: Entry[] = [
