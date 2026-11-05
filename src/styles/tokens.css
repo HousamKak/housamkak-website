@@ -64,16 +64,7 @@
   color-scheme: light;
 }
 
-/* Dark: the same sheet, drawn in light ink. Follows the OS unless the reader picks a theme. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --surround: #0B0C0E; --paper: #111315; --hair: #22262B; --rule: #3A4048;
-    --ink: #E8EAED; --muted: #A6ADB5; --faint: #858D96;
-    --line: #8FAEFF; --point: #FFC53D; --point-ink: #FFC53D; --on-point: #14171B;
-    --shot: #000000;
-    color-scheme: dark;
-  }
-}
+/* Dark: the same sheet, drawn in light ink. Light is the default; dark only when the reader picks it. */
 :root[data-theme="dark"] {
   --surround: #0B0C0E; --paper: #111315; --hair: #22262B; --rule: #3A4048;
   --ink: #E8EAED; --muted: #A6ADB5; --faint: #858D96;
