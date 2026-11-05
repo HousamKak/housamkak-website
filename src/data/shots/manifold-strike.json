@@ -1,0 +1,6 @@
+[
+  {"src": "/media/manifold-strike/shots/01-timber-hall.webp", "alt": "First person view in Manifold Strike: a dark hall of carved wooden pillars and beams with a shotgun in hand and a credits, armour, health and ammo HUD", "caption": "A timber hall, generated on load like every level, texture and mesh in the game.", "kind": "desktop"},
+  {"src": "/media/manifold-strike/shots/02-checkered-corridor.webp", "alt": "Manifold Strike level with pale stone block walls, copper panels and a black and white checkered floor", "caption": "A stone corridor with a checkered floor, from the same 260 KB executable.", "kind": "desktop"},
+  {"src": "/media/manifold-strike/shots/03-brick-colonnade.webp", "alt": "Manifold Strike level with red brick pillars along a long room and a doorway at the far end", "caption": "A brick colonnade level.", "kind": "desktop"},
+  {"src": "/media/manifold-strike/shots/04-generating-level.webp", "alt": "Manifold Strike loading screen with the title and an orange progress line while the level is generated", "caption": "The load screen: the world is being built from short programs on the player's machine.", "kind": "desktop"}
+]
