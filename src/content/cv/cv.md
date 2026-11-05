@@ -6,9 +6,8 @@ updated: 2026-11-05
 <!--
 REVIEW BEFORE PUBLISHING. Notes removed from this public copy.
 Client names are deliberately left out of this comment too, because Markdown HTML comments can survive into the page source.
-- Lead role title: the private CV marks it [confirm title]; this page uses "Product Lead, AI Systems Pilot".
-- Firm names: the lead employer is shown as "a global investment firm". The real name (see the private CV) can be restored once Housam approves naming the firm publicly.
-  The other client names are anonymised the same way; restore them with the same approval.
+- Lead role title: Senior AI & Software Engineer, Front Office Investment Technology (set by Housam, 5 Nov 2026).
+- Firm names: Housam approved naming the lead employer (5 Nov 2026). The other client names stay anonymised until he approves them too.
 - LinkedIn link omitted until the slug is confirmed.
 - Confirm: employment relationship and start month
 - Confirm: team size and reporting scope
@@ -25,21 +24,21 @@ Full checklist: D:/Acadamics and Work/Work/Housam Kak information/Phase 2 - Publ
 
 # Housam Kak
 
-Product lead and software engineer for enterprise AI. Dubai, UAE.
+Front Office Investment Technology | Senior AI & Software Engineer | Systems and Processes Architect | Mathematician. Dubai, UAE.
 
 [housamkak.com](https://www.housamkak.com) | [blog.housamkak.com](https://blog.housamkak.com) | [blockforge.housamkak.com](https://blockforge.housamkak.com) | [github.com/HousamKak](https://github.com/HousamKak) | [housam.kak20@gmail.com](mailto:housam.kak20@gmail.com)
 
 ## Profile
 
-Product lead and software engineer delivering enterprise AI and financial technology systems for investment firms. Combines requirements and stakeholder work with architecture and hands-on development. Independently builds his own systems: an AI agent workspace (H), a programmable 3D world engine (BlockForge), offline-first retail software and AI developer tools. Mechanical engineer and mathematician by training.
+Senior AI and software engineer in front office investment technology at Davidson Kempner Capital Management, an elite $37B+ New York multi-strategy hedge fund, and a systems and processes architect. Combines requirements and stakeholder work with architecture and hands-on development. Independently builds his own systems: an AI agent workspace (H), a programmable 3D world engine (BlockForge), offline-first retail software and AI developer tools. Mechanical engineer and mathematician by training.
 
 ## Experience
 
-### A global investment firm
+### Davidson Kempner Capital Management
 
-**Product Lead, AI Systems Pilot** | 2024 - present
+**Senior AI & Software Engineer, Front Office Investment Technology** | 2024 to present
 
-Enterprise conversational AI pilot | Client assignment through OmniVista Solutions
+Elite $37B+ NYC multi-strategy hedge fund | Product lead, enterprise conversational AI pilot | Client assignment through OmniVista Solutions
 
 - Head the pilot AI systems team, owning product direction and senior software delivery for a conversational platform that connects staff to company data.
 - The platform is used by 200+ internal users to find company information and support operational workflows.
@@ -52,7 +51,7 @@ Enterprise conversational AI pilot | Client assignment through OmniVista Solutio
 Financial technology consultancy, Dubai | Selected client engagements
 
 - **Healthcare investment firm:** led requirements and authored the BRD/TRD for an analyst recommendation portal; designed its architecture and trade submission to the Charles River order management system, and coordinated planning and CI/CD. Contributed to a reported 65% shorter trade-idea turnaround.
-- **Global investment firm, data integration:** built C#/ASP.NET Core Windows services for ESG risk and market-data retrieval, released through Bitbucket, TeamCity and Octopus Deploy; traced data and optimized queries, cutting portfolio application load time by about 70%; designed Power BI reporting for Expected and Target Exposure.
+- **Davidson Kempner, data integration:** built C#/ASP.NET Core Windows services for ESG risk and market-data retrieval, released through Bitbucket, TeamCity and Octopus Deploy; traced data and optimized queries, cutting portfolio application load time by about 70%; designed Power BI reporting for Expected and Target Exposure.
 - **Hedge fund client:** led client support operations across 2,500+ tickets, automating support-data retrieval and analysis with Python and SQL.
 - **Wealth management firm:** automated Excel/VBA dashboards and SQL extraction and import preparation for trade, security, position and fund data.
 
