@@ -105,7 +105,7 @@ A dev-mode overlay for pinning problems on a running app; each annotation carrie
 
 Case study: [housamkak.com/work/uipen](https://www.housamkak.com/work/uipen) | Live: [uipen.dev](https://uipen.dev)
 
-Also: H Distribution (multi-platform publishing), Studio (script-to-film pipeline), Flying Screen (simulation and research paper), and co-founder and CTO of Atlagene, a genomics venture. Full index at [housamkak.com/work](https://www.housamkak.com/work).
+Also: H Distribution (multi-platform publishing), Studio (script-to-film pipeline), Flying Screen (simulation and research paper), co-founder and CTO of Atlagene, a genomics venture, and co-founder and CTO of Saken, a residential community management platform. Full index at [housamkak.com/work](https://www.housamkak.com/work).
 
 ## Education
 

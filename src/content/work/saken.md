@@ -5,7 +5,7 @@ order: 3
 hook: "Community and residential management across web, mobile, admin, CLI and MCP."
 summary: "Saken is a team-built platform for running residential communities, spanning a web app, a NestJS API, a React Native mobile app, an admin console, a CLI and an MCP server."
 categories: ["business-software", "mobile"]
-role: "Team member; contributed across the web app, API, mobile app, admin console and MCP server (role to be confirmed)"
+role: "Co-founder and CTO"
 period: "May 2026 to Sep 2026"
 status: "Deployment state unknown"
 stack: ["Next.js", "NestJS", "Supabase", "React Native", "Expo", "MCP"]
